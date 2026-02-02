@@ -1,19 +1,13 @@
 fileFormatVersion: 2
-guid: 276f36d6b796c27458aea4db560ac714
+guid: 84af02d5f5ce0f445a7acc034b8e7deb
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 736644971566567550
-    second: dough_0
+      213: 6823579260891627565
+    second: pan_solid1_0
   - first:
-      213: -3356708552664877163
-    second: dough_1
-  - first:
-      213: -2960958461784561009
-    second: dough_2
-  - first:
-      213: 6700415420625947543
-    second: dough_3
+      213: 7709297223584831092
+    second: pan_solid1_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -122,13 +116,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: dough_0
+      name: pan_solid1_0
       rect:
         serializedVersion: 2
-        x: 84
-        y: 104
-        width: 333
-        height: 142
+        x: 148
+        y: 183
+        width: 176
+        height: 160
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -137,20 +131,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e709dcfd2b6193a00800000000000000
-      internalID: 736644971566567550
+      spriteID: d200b265f2932be50800000000000000
+      internalID: 6823579260891627565
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: dough_1
+      name: pan_solid1_1
       rect:
         serializedVersion: 2
-        x: 107
-        y: 244
-        width: 17
-        height: 11
+        x: 232
+        y: 179
+        width: 29
+        height: 27
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -159,52 +153,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 597f4ef1b539a61d0800000000000000
-      internalID: -3356708552664877163
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: dough_2
-      rect:
-        serializedVersion: 2
-        x: 112
-        y: 226
-        width: 287
-        height: 63
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: f8ae4a287ff88e6d0800000000000000
-      internalID: -2960958461784561009
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: dough_3
-      rect:
-        serializedVersion: 2
-        x: 377
-        y: 244
-        width: 23
-        height: 14
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 79b85f12358acfc50800000000000000
-      internalID: 6700415420625947543
+      spriteID: 476ddafaafcecfa60800000000000000
+      internalID: 7709297223584831092
       vertices: []
       indices: 
       edges: []
@@ -223,10 +173,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      dough_0: 736644971566567550
-      dough_1: -3356708552664877163
-      dough_2: -2960958461784561009
-      dough_3: 6700415420625947543
+      pan_solid1_0: 6823579260891627565
+      pan_solid1_1: 7709297223584831092
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

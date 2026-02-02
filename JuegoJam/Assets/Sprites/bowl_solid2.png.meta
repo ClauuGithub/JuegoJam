@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: c5e20770124d9c44a84e1ac335e78ee2
+guid: 4fe7ff3b4019ce34c8021b3a46e21dee
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4660867730886764886
-    second: solid2_0
+      213: -2024823728986586429
+    second: bowl_solid2_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,7 +113,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: solid2_0
+      name: bowl_solid2_0
       rect:
         serializedVersion: 2
         x: 94
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: aa6d96b3e75415fb0800000000000000
-      internalID: -4660867730886764886
+      spriteID: 3c209f4eb8166e3e0800000000000000
+      internalID: -2024823728986586429
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      solid2_0: -4660867730886764886
+      bowl_solid2_0: -2024823728986586429
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

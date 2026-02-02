@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 089c87eff83b57044955f23ffceb2c95
+guid: 96a04123c309c534996635fd296417ed
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7290534985110167030
-    second: liquid_0
+      213: -2901845506627265117
+    second: pan_empty_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: liquid_0
+      name: pan_empty_0
       rect:
         serializedVersion: 2
-        x: 101
-        y: 101
-        width: 301
-        height: 105
+        x: 121
+        y: 19
+        width: 351
+        height: 360
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6fd9c0a21fe2d2560800000000000000
-      internalID: 7290534985110167030
+      spriteID: 3ad1b68e2e29ab7d0800000000000000
+      internalID: -2901845506627265117
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      liquid_0: 7290534985110167030
+      pan_empty_0: -2901845506627265117
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
