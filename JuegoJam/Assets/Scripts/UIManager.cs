@@ -1,12 +1,21 @@
+using NUnit.Framework;
 using UnityEngine;
+using System.Collections.Generic;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
     public static UIManager Instance;
 
+    // MOSTRADOR
     public GameObject counterPanel;
+    public Transform customersContainer; // Contenedor para los prefabs de los clientes
+    public GameObject customerUIPrefab; // Prefab del cliente
+
+    // LIBRO DE RECETAS
     public GameObject recipeBookPanel;
 
+    // MINIJUEGOS
     public GameObject cuttingGame;
     public GameObject prepGame;
     public GameObject fryerGame;
@@ -48,4 +57,39 @@ public class UIManager : MonoBehaviour
         stoveGame.SetActive(false);
         platingGame.SetActive(false);
     }
-}
+
+    public void UpdateOrdersUI(List<Order> orders)
+    {
+        // Primero borramos cualquier UI existente de clientes
+        foreach (Transform child in customersContainer)
+        {
+            Destroy(child.gameObject);
+        }
+
+        // Creamos un UI por cada pedido
+        foreach (var order in orders)
+        {
+            GameObject go = Instantiate(customerUIPrefab, customersContainer);
+
+            // Configuramos el sprite del cliente
+            go.transform.Find("CustomerImage").GetComponent<Image>().sprite = order.customer.sprite;
+
+            // Configuramos el icono de receta
+            go.transform.Find("RecipeIcon").GetComponent<Image>().sprite = order.recipe.icon;
+
+            // Configuramos la barra de paciencia
+            Slider patienceSlider = go.transform.Find("PatienceSlider").GetComponent<Slider>();
+            patienceSlider.maxValue = order.timeRemaining; // paciencia inicial
+            patienceSlider.value = order.timeRemaining;
+
+            // Configuramos el botón de tomar pedido
+            Button takeButton = go.transform.Find("TakeOrderButton").GetComponent<Button>();
+            takeButton.onClick.RemoveAllListeners(); // Quitamos cualquier listener anterior
+            takeButton.onClick.AddListener(() =>
+            {
+                FindFirstObjectByType<OrderManager>().TakeOrder(order);
+            });
+
+        }
+    }
+    }

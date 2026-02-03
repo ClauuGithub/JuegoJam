@@ -9,6 +9,7 @@ public class OrderManager : MonoBehaviour
 
     public void SpawnCustomer(CustomerSO customer)
     {
+        Debug.Log("Cliente spawneado"); // PRUEBAS
         if (activeOrders.Count >= maxOrders) return;
 
         // Se elige una receta al azar de las que se puede elegir

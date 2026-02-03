@@ -10,6 +10,11 @@ public class RecipeBookUI : MonoBehaviour
         recipeBookPanel.SetActive(true);
     }
 
+    public void CloseRecipeBook()
+    {
+        recipeBookPanel.SetActive(false);
+    }
+
     public void OnRecipeChosen(RecipeSO recipe)
     {
         recipeBookPanel.SetActive(false); // cerramos el libro

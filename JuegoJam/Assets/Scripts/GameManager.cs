@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour
     public void StationCompleted(bool success)
     {
         // Aumentamos el contador de estación solo si se ha superado la estación, en caso contrario habrá que repetirla
-        if (success) 
+        if (success)
             currentStepIndex++;
 
         GoToNextStation();
