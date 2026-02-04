@@ -58,9 +58,8 @@ public class OrderManager : MonoBehaviour
         order.timeRemaining = order.customer.patienceTime; // El tiempo que le quede será el del cliente (para tomar en cuenta los clientes especiales)
     }
 
-    public void DeliverDish(RecipeSO cookedRecipe)
+    public bool TryDeliverDish(RecipeSO cookedRecipe)
     {
-        // Buscamos si en los pedidos activos está la receta que acabamos de preparar
         Order order = activeOrders.Find(o => o.recipe == cookedRecipe && o.taken);
 
         if (order != null)
@@ -77,11 +76,15 @@ public class OrderManager : MonoBehaviour
             if (order.isSpecialCustomer)
             {
                 remainingSpecialCustomers.Remove(order.customer);
-                Debug.Log("Cliente especial completado y eliminado"); // PRUEBAS
+                Debug.Log("Cliente especial completado y eliminado");
             }
 
+            UIManager.Instance.UpdateOrdersUI(activeOrders);
             Debug.Log("Cliente servido correctamente");
+            return true;
         }
+
+        return false;
     }
 
     void TrySpawnCustomer()

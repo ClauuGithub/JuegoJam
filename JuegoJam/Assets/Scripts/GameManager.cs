@@ -43,8 +43,7 @@ public class GameManager : MonoBehaviour
 
     void FinishDish()
     {
-        // Comprobamos si alguien quería ese pedido
         UIManager.Instance.ReturnToCounter();
-        FindFirstObjectByType<OrderManager>().DeliverDish(currentRecipe);
+        CounterDishManager.Instance.AddDish(currentRecipe);
     }
 }

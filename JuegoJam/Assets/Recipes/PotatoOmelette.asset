@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: PotatoOmelette
   m_EditorClassIdentifier: Assembly-CSharp::RecipeSO
   recipeName: PotatoOmelette
-  icon: {fileID: 0}
+  icon: {fileID: 885422235975088398, guid: 946c223c3543cdb46bb0ef8884be3c2c, type: 3}
   stationSteps: 
