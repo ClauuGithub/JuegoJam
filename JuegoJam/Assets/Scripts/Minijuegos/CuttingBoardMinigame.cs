@@ -3,12 +3,36 @@ using UnityEngine.UI;
 
 public class CuttingBoardMinigame : MonoBehaviour
 {
+    [Header("Prefab del punto")]
     public GameObject pointButtonPrefab;
+
+    [Header("Area donde aparecen los puntos")]
     public RectTransform spawnArea;
+
+    [Header("Cantidad de puntos")]
     public int numberOfPoints = 10;
+
+    [Header("Objeto inicia el juego")]
+    public Button knifeButton;
+
+    private bool gameStarted = false;
 
     void Start()
     {
+        // El minijuego NO empieza automáticamente
+        // Esperamos a que el jugador pulse el cuchillo
+        knifeButton.onClick.AddListener(StartMinigame);
+    }
+
+    void StartMinigame()
+    {
+        if (gameStarted) return;
+
+        gameStarted = true;
+
+        // Ocultar el cuchillo cuando empieza
+        knifeButton.gameObject.SetActive(false);
+
         SpawnAllPoints();
     }
 
@@ -28,7 +52,11 @@ public class CuttingBoardMinigame : MonoBehaviour
             // Destruye el botón al hacer clic
             btn.GetComponent<Button>().onClick.AddListener(() =>
             {
-                Destroy(btn, 0.3f); 
+                Destroy(btn, 0.3f);
+
+                // Si ya no quedan puntos éxito
+                if (spawnArea.childCount == 1) // solo queda el panel
+                    Success();
             });
         }
     }
@@ -37,7 +65,7 @@ public class CuttingBoardMinigame : MonoBehaviour
     public void Success()
     {
         GameManager.Instance.StationCompleted(true);
-        this.gameObject.SetActive(false); // opcional: esconder el minijuego
+        this.gameObject.SetActive(false);
     }
 
     public void Fail()
