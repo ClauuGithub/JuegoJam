@@ -2616,40 +2616,16 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4656821088768864528, guid: e84a3ecf7d2c64c4c86197cb3b551a7a, type: 3}
       propertyPath: m_Name
-      value: potato
-      objectReference: {fileID: 0}
-    - target: {fileID: 4886904840076403063, guid: e84a3ecf7d2c64c4c86197cb3b551a7a, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4886904840076403063, guid: e84a3ecf7d2c64c4c86197cb3b551a7a, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 2
+      value: Potato
       objectReference: {fileID: 0}
     - target: {fileID: 4886904840076403063, guid: e84a3ecf7d2c64c4c86197cb3b551a7a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1831175790}
     - target: {fileID: 4886904840076403063, guid: e84a3ecf7d2c64c4c86197cb3b551a7a, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4886904840076403063, guid: e84a3ecf7d2c64c4c86197cb3b551a7a, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ShowIngredient
-      objectReference: {fileID: 0}
-    - target: {fileID: 4886904840076403063, guid: e84a3ecf7d2c64c4c86197cb3b551a7a, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: CuttingBoardMinigame, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 4886904840076403063, guid: e84a3ecf7d2c64c4c86197cb3b551a7a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
       objectReference: {fileID: 1757762131}
-    - target: {fileID: 4886904840076403063, guid: e84a3ecf7d2c64c4c86197cb3b551a7a, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: Ingredient, Assembly-CSharp
-      objectReference: {fileID: 0}
     - target: {fileID: 8321116273563067398, guid: e84a3ecf7d2c64c4c86197cb3b551a7a, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -2681,18 +2657,6 @@ PrefabInstance:
     - target: {fileID: 8321116273563067398, guid: e84a3ecf7d2c64c4c86197cb3b551a7a, type: 3}
       propertyPath: m_SizeDelta.y
       value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 8321116273563067398, guid: e84a3ecf7d2c64c4c86197cb3b551a7a, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 3.1399999
-      objectReference: {fileID: 0}
-    - target: {fileID: 8321116273563067398, guid: e84a3ecf7d2c64c4c86197cb3b551a7a, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 3.1399999
-      objectReference: {fileID: 0}
-    - target: {fileID: 8321116273563067398, guid: e84a3ecf7d2c64c4c86197cb3b551a7a, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 3.1399999
       objectReference: {fileID: 0}
     - target: {fileID: 8321116273563067398, guid: e84a3ecf7d2c64c4c86197cb3b551a7a, type: 3}
       propertyPath: m_LocalPosition.x
