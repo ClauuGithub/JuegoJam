@@ -15,6 +15,11 @@ public class CuttingBoardMinigame : MonoBehaviour
     [Header("Objeto inicia el juego")]
     public Button knifeButton;
 
+    [Header("Ingredientes disponibles")]
+    public Ingredient[] ingredients;
+
+    private Ingredient currentIngredient;
+
     private bool gameStarted = false;
 
     void Start()
@@ -24,17 +29,30 @@ public class CuttingBoardMinigame : MonoBehaviour
         knifeButton.onClick.AddListener(StartMinigame);
     }
 
+    public void ShowIngredient(Ingredient ingredient)
+    {
+        if (currentIngredient != null) return;
+
+        ingredient.gameObject.SetActive(true);
+        currentIngredient = ingredient;
+    }
+
     void StartMinigame()
     {
         if (gameStarted) return;
+        if (currentIngredient == null) return;
+        if (!currentIngredient.canBeCut) return;   //comprobar si hay ingrediente en la tabla 
 
         gameStarted = true;
 
-        // Ocultar el cuchillo cuando empieza
+        currentIngredient.gameObject.SetActive(false);
+        currentIngredient = null;
+
         knifeButton.gameObject.SetActive(false);
 
         SpawnAllPoints();
     }
+
 
     void SpawnAllPoints()
     {
