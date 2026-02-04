@@ -8,7 +8,11 @@ public enum CookingStation // TODAS las estaciones posibles
     Fryer,
     Oven,
     Stove,
-    Plating
+    Plating,
+    Spices,
+    Shaping,
+    CheeseGrater,
+    Mixing
 }
 
 [CreateAssetMenu(fileName = "Recipe", menuName = "Cooking/Recipe")]
