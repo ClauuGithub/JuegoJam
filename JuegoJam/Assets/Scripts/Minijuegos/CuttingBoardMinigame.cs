@@ -40,20 +40,27 @@ public class CuttingBoardMinigame : MonoBehaviour
     void StartMinigame()
     {
         if (gameStarted) return;
-        if (currentIngredient == null) return;
-        if (!currentIngredient.canBeCut) return;   //comprobar si hay ingrediente en la tabla 
+
+        //comprobamos que hay ingrediente en la tabla
+        if (currentIngredient == null)
+        {
+            Debug.Log("No hay ningún ingrediente en la tabla.");
+            return;
+        }
+
+        if (!currentIngredient.canBeCut)
+        {
+            Debug.Log("Este ingrediente no se puede cortar.");
+            return;
+        }
 
         gameStarted = true;
 
-        currentIngredient.gameObject.SetActive(false);
-        currentIngredient = null;
-
         knifeButton.gameObject.SetActive(false);
-
         SpawnAllPoints();
     }
 
-
+    //genera los puntos aleatoriamente
     void SpawnAllPoints()
     {
         for (int i = 0; i < numberOfPoints; i++)
@@ -82,6 +89,12 @@ public class CuttingBoardMinigame : MonoBehaviour
     // ESTOS DOS MÉTODOS TIENEN QUE APARECER EN CADA MINIJUEGO:
     public void Success()
     {
+        if (currentIngredient != null)
+        {
+            currentIngredient.gameObject.SetActive(false);
+            currentIngredient = null;
+        }
+
         GameManager.Instance.StationCompleted(true);
         this.gameObject.SetActive(false);
     }
