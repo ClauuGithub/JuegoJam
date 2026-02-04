@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PanMinigame : MonoBehaviour
+public class ShapingMinigame : MonoBehaviour
 {
 	public void Success()
 	{
