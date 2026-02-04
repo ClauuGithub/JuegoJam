@@ -2,10 +2,12 @@ using NUnit.Framework;
 using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
     public static UIManager Instance;
+
 
     // MOSTRADOR
     public GameObject counterPanel;
@@ -92,4 +94,34 @@ public class UIManager : MonoBehaviour
 
         }
     }
+
+    //MENUS
+
+    public void MenuScene()
+    {
+        SceneManager.LoadScene("Menu");
     }
+
+    public void ConfigScene()
+    {
+        SceneManager.LoadScene("SettingsScene");
+    }
+
+    public void LoadGameScene()
+    {
+        SceneManager.LoadScene("RestaurantScene");
+    }
+
+    public void CreditsScene()
+    {
+        SceneManager.LoadScene("CreditsScene");
+    }
+    public void Exit()
+    {
+        Application.Quit();
+        Debug.Log("Juego cerrado");
+    }
+
+
+
+}
