@@ -43,7 +43,8 @@ public class OrderManager : MonoBehaviour
             customer = customer,
             recipe = recipe,
             timeRemaining = customer.timeToOrder,
-            taken = false
+            taken = false,
+            isSpecialCustomer = specialCustomers.Contains(customer)
         };
 
         // Y lo añadimos a la lista de órdenes
@@ -73,6 +74,12 @@ public class OrderManager : MonoBehaviour
                 specialCustomerPending = true;
             }
 
+            if (order.isSpecialCustomer)
+            {
+                remainingSpecialCustomers.Remove(order.customer);
+                Debug.Log("Cliente especial completado y eliminado"); // PRUEBAS
+            }
+
             Debug.Log("Cliente servido correctamente");
         }
     }
@@ -90,7 +97,6 @@ public class OrderManager : MonoBehaviour
             int index = Random.Range(0, remainingSpecialCustomers.Count);
             customerToSpawn = remainingSpecialCustomers[index];
 
-            remainingSpecialCustomers.RemoveAt(index); // NO puede volver a salir
             specialCustomerPending = false;
 
             Debug.Log("¡Aparece cliente ESPECIAL!");
@@ -123,6 +129,7 @@ public class OrderManager : MonoBehaviour
             Debug.Log("DEBUG: Plato servido. Total = " + dishesServedCount);
         }
     }
+    /////////
 
     void Update()
     {
