@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6180dff345c397346af1b09196abd689, type: 3}
+  m_Name: MaleCustomer
+  m_EditorClassIdentifier: Assembly-CSharp::CustomerSO
+  customerName: Pepe
+  sprite: {fileID: 1928502913017956590, guid: c27009f797a1f9444a112bd1c057332e, type: 3}
+  possibleRecipes:
+  - {fileID: 11400000, guid: 065854b918bc727418a742f08c30736e, type: 2}
+  - {fileID: 11400000, guid: 2388f422a1d3e5e459cd55e5bec6f826, type: 2}
+  timeToOrder: 10
+  patienceTime: 40
