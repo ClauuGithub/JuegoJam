@@ -7,7 +7,32 @@ public class MixingMinigame : MonoBehaviour
 	public int nMaxPress = 20;
 
 	[Header("Botón que inicia el juego")]
-	public Button Bowl;
+	public Button InitBowl;
+
+	[Header("Sprite bowl mezclar izq.")]
+	public GameObject bowlIzq;
+
+	[Header("Sprite bowl mezclar der.")]
+	public GameObject bowlDer;
+
+	[Header("Sprite bowl vacio")]
+	public GameObject bowlMpt;
+
+	[Header("Sprite bowl mezclado")]
+	public GameObject bowlMixed;
+
+	[Header("Sprite masa")]
+	public GameObject bowlDough;
+
+	[Header("Sprite liquido")]
+	public GameObject bowlLiquid;
+
+	[Header("Sprite solido 1")]
+	public GameObject bowlSolid1;
+
+	[Header("Sprite solido 2")]
+	public GameObject bowlSolid2;
+
 
 	private int nPress;
 	private string nextKey;
@@ -15,7 +40,7 @@ public class MixingMinigame : MonoBehaviour
 
 	void Start()
 	{
-		Bowl.onClick.AddListener(StartMinigame);
+		InitBowl.onClick.AddListener(StartMinigame);
 	}
 
 	// 1. Esto se ejecuta SOLO UNA VEZ al pulsar el bowl
@@ -27,7 +52,8 @@ public class MixingMinigame : MonoBehaviour
 		nextKey = ""; // Empezamos vacío para que valga cualquiera (A o D)
 		gameStarted = true;
 
-		Bowl.gameObject.SetActive(false); // Opcional: ocultar botón para que no estorbe
+		InitBowl.gameObject.SetActive(false); // Opcional: ocultar botón para que no estorbe
+		bowlMpt.gameObject.SetActive(true);
 		Debug.Log("Minijuego empezado. Pulsa A o D");
 	}
 	   
@@ -40,21 +66,29 @@ public class MixingMinigame : MonoBehaviour
 		if (nextKey == "") // Primera pulsación (acepta cualquiera)
 		{
 			if (Input.GetKeyDown(KeyCode.A)) 
-			{ 
+			{
+				//Cambiar a sprite izq.
+				setComplete(bowlIzq);
 				nextKey = "D"; nPress++; 
 			}
 			else if (Input.GetKeyDown(KeyCode.D)) 
-			{ 
+			{
+				//Cambiar a sprite der.
+				setComplete(bowlDer);
 				nextKey = "A"; nPress++; 
 			}
 		}
 		else if (nextKey == "A" && Input.GetKeyDown(KeyCode.A))
 		{
+			//Cambiar a sprite izq.
+			setComplete(bowlIzq);
 			nextKey = "D";
 			nPress++;
 		}
 		else if (nextKey == "D" && Input.GetKeyDown(KeyCode.D))
 		{
+			//Cambiar a sprite der.
+			setComplete(bowlDer);
 			nextKey = "A";
 			nPress++;
 		}
@@ -65,6 +99,33 @@ public class MixingMinigame : MonoBehaviour
 			Success();
 		}
 	}
+
+	private void setComplete(GameObject newComplete)
+	{
+		setFalseAll();
+		newComplete.gameObject.SetActive(true);
+	}
+
+	private void setPartial(GameObject newPartial)
+	{
+		setFalseAll();
+		bowlMpt.gameObject.SetActive(true);
+		newPartial.gameObject.SetActive(true);
+	}
+
+	private void setFalseAll()
+	{
+		bowlIzq.gameObject.SetActive(false);
+		bowlDer.gameObject.SetActive(false);
+		bowlMpt.gameObject.SetActive(false);
+		bowlMixed.gameObject.SetActive(false);
+		bowlDough.gameObject.SetActive(false);
+		bowlLiquid.gameObject.SetActive(false);
+		bowlSolid1.gameObject.SetActive(false);
+		bowlSolid2.gameObject.SetActive(false);
+	}
+
+
 
 	public void Success()
 	{
