@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: CarlJung
   m_EditorClassIdentifier: Assembly-CSharp::CustomerSO
   customerName: Carl Jung
-  sprite: {fileID: -3023975930957873652, guid: a3988a7e15a461f4b8939142f6bcd4b7, type: 3}
+  sprite: {fileID: -448283476853941028, guid: da29c0aa0579ff8438962919904af4b8, type: 3}
   possibleRecipes:
   - {fileID: 11400000, guid: b36769df2c3ac9444b4e75e47acc7f4f, type: 2}
   timeToOrder: 10
