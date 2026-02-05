@@ -16,9 +16,9 @@ public class CuttingBoardMinigame : MonoBehaviour
     public Button knifeButton;
 
     [Header("Ingredientes disponibles")]
-    public Ingredient[] ingredients;
+   // public Gameobject[] ingredients;
 
-    private Ingredient currentIngredient;
+    private GameObject currentIngredient;
 
     private bool gameStarted = false;
 
@@ -31,7 +31,7 @@ public class CuttingBoardMinigame : MonoBehaviour
         knifeButton.onClick.AddListener(StartMinigame);
     }
 
-    public void ShowIngredient(Ingredient ingredient)
+    public void ShowIngredient(GameObject ingredient)
     {
         if (currentIngredient != null) return;
 
@@ -47,12 +47,6 @@ public class CuttingBoardMinigame : MonoBehaviour
         if (currentIngredient == null)
         {
             Debug.Log("No hay ningún ingrediente en la tabla.");
-            return;
-        }
-
-        if (!currentIngredient.canBeCut)
-        {
-            Debug.Log("Este ingrediente no se puede cortar.");
             return;
         }
 
