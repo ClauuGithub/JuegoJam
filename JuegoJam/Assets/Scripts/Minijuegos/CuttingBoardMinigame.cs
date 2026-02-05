@@ -22,6 +22,8 @@ public class CuttingBoardMinigame : MonoBehaviour
 
     private bool gameStarted = false;
 
+    private int remainingPoints;
+
     void Start()
     {
         // El minijuego NO empieza automáticamente
@@ -56,6 +58,8 @@ public class CuttingBoardMinigame : MonoBehaviour
 
         gameStarted = true;
 
+        remainingPoints = numberOfPoints;
+
         knifeButton.gameObject.SetActive(false);
         SpawnAllPoints();
     }
@@ -79,9 +83,13 @@ public class CuttingBoardMinigame : MonoBehaviour
             {
                 Destroy(btn, 0.3f);
 
-                // Si ya no quedan puntos éxito
-                if (spawnArea.childCount == 1) 
+                remainingPoints--;
+
+                if (remainingPoints <= 0)
+                {
                     Success();
+                }
+                    
             });
         }
     }
@@ -92,13 +100,15 @@ public class CuttingBoardMinigame : MonoBehaviour
         Debug.Log("Success!");
         if (currentIngredient != null)
         {
-            Debug.Log("Success!");
             currentIngredient.gameObject.SetActive(false);
             currentIngredient = null;
         }
 
-        GameManager.Instance.StationCompleted(true);
-        this.gameObject.SetActive(false);
+        knifeButton.gameObject.SetActive(true);
+        gameStarted = false;
+
+        /* GameManager.Instance.StationCompleted(true);
+         this.gameObject.SetActive(false);*/
     }
 
     public void Fail()
