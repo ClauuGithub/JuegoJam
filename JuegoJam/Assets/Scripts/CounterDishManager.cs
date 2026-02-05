@@ -12,6 +12,9 @@ public class CounterDishManager : MonoBehaviour
 
     List<RecipeSO> readyDishes = new List<RecipeSO>();
 
+    [Header("Max Dishes on Counter")]
+    public int maxDishesOnCounter = 3; // máximo platos visibles en el mostrador
+
     // PRUEBAAAAAS
     [Header("DEBUG")]
     public List<RecipeSO> debugRecipes;
@@ -39,6 +42,12 @@ public class CounterDishManager : MonoBehaviour
 
     public void AddDish(RecipeSO recipe)
     {
+        if (readyDishes.Count >= maxDishesOnCounter)
+        {
+            Debug.Log("El mostrador está lleno. No puedes cocinar más por ahora.");
+            return;
+        }
+
         readyDishes.Add(recipe);
         UpdateDishUI();
     }
@@ -70,5 +79,10 @@ public class CounterDishManager : MonoBehaviour
 
         readyDishes.Remove(recipe);
         UpdateDishUI();
+    }
+
+    public int CurrentDishCount()
+    {
+        return readyDishes.Count;
     }
 }

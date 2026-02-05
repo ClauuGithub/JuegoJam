@@ -1082,6 +1082,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   dishesContainer: {fileID: 1928241308}
   dishUIPrefab: {fileID: 7973965115634038984, guid: c7c3a14e0c028224c924e5f8f67c6b9c, type: 3}
+  maxDishesOnCounter: 3
   debugRecipes:
   - {fileID: 11400000, guid: 065854b918bc727418a742f08c30736e, type: 2}
   - {fileID: 11400000, guid: 2388f422a1d3e5e459cd55e5bec6f826, type: 2}
@@ -1986,7 +1987,9 @@ MonoBehaviour:
   possibleCustomers:
   - {fileID: 11400000, guid: b90c0f800376f4d418e5ba17591f40d1, type: 2}
   - {fileID: 11400000, guid: 866435bfd67054b4196415b0d37afaa9, type: 2}
-  specialCustomers: []
+  specialCustomers:
+  - {fileID: 11400000, guid: 525587070e313024a9e13eaaeff2ad26, type: 2}
+  - {fileID: 11400000, guid: b5f38e78c5a2c354b9dc302fa23f7b33, type: 2}
   dishesPerSpecialCustomer: 5
 --- !u!4 &1463964926
 Transform:
