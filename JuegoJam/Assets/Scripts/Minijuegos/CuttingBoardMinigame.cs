@@ -80,7 +80,7 @@ public class CuttingBoardMinigame : MonoBehaviour
                 Destroy(btn, 0.3f);
 
                 // Si ya no quedan puntos éxito
-                if (spawnArea.childCount == 1) // solo queda el panel
+                if (spawnArea.childCount == 1) 
                     Success();
             });
         }
@@ -89,8 +89,10 @@ public class CuttingBoardMinigame : MonoBehaviour
     // ESTOS DOS MÉTODOS TIENEN QUE APARECER EN CADA MINIJUEGO:
     public void Success()
     {
+        Debug.Log("Success!");
         if (currentIngredient != null)
         {
+            Debug.Log("Success!");
             currentIngredient.gameObject.SetActive(false);
             currentIngredient = null;
         }
