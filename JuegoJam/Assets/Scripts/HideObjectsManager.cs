@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class HideObjectsManager : MonoBehaviour
 {
-    [Header("Referencias a recetas")]
+    [Header("Script Objects de las recetas")]
     public RecipeSO saladRecipe;
     public RecipeSO tortillaRecipe;
 
@@ -36,12 +36,18 @@ public class HideObjectsManager : MonoBehaviour
     void HideAll()
     {
         foreach (GameObject obj in allObjects)
+        {
             obj.SetActive(false);
+        }
+            
     }
 
     void Enable(GameObject[] objs)
     {
         foreach (GameObject obj in objs)
+        {
             obj.SetActive(true);
+        }
+            
     }
 }
