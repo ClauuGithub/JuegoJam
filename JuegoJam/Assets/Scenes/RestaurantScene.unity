@@ -759,6 +759,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f289a042a6904cf4a9ceb44b74e19aa8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::IngredientsManager
+--- !u!1 &412023110
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 412023111}
+  m_Layer: 0
+  m_Name: ObjectsManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &412023111
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 412023110}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.49665, y: -0.0737, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &432064327 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5867436877013667004, guid: e84a3ecf7d2c64c4c86197cb3b551a7a, type: 3}
@@ -4928,7 +4959,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -79.00001}
+  m_AnchoredPosition: {x: 0, y: -79.000015}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1737533107
@@ -6152,7 +6183,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2030635915
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6969,3 +7000,4 @@ SceneRoots:
   - {fileID: 1894392791}
   - {fileID: 1562011225}
   - {fileID: 637933355}
+  - {fileID: 412023111}
