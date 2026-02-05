@@ -81,7 +81,7 @@ public class CuttingBoardMinigame : MonoBehaviour
             // Destruye el botón al hacer clic
             btn.GetComponent<Button>().onClick.AddListener(() =>
             {
-                Destroy(btn, 0.3f);
+                Destroy(btn, 0.1f);
 
                 remainingPoints--;
 
