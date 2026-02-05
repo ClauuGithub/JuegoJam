@@ -7,4 +7,5 @@ public class Order
     public RecipeSO recipe;
     public float timeRemaining; // tiempo hasta que se vaya
     public bool taken; // si ya se le ha tomado el pedido
+    public bool isSpecialCustomer;
 }

@@ -14,6 +14,13 @@ public class GameManager : MonoBehaviour
 
     public void StartCooking(RecipeSO recipe)
     {
+        // Revisamos si el mostrador está lleno
+        if (CounterDishManager.Instance.CurrentDishCount() >= CounterDishManager.Instance.maxDishesOnCounter)
+        {
+            Debug.Log("No puedes cocinar, el mostrador está lleno");
+            return;
+        }
+
         currentRecipe = recipe;
         currentStepIndex = 0;
         GoToNextStation();
@@ -43,8 +50,7 @@ public class GameManager : MonoBehaviour
 
     void FinishDish()
     {
-        // Comprobamos si alguien quería ese pedido
         UIManager.Instance.ReturnToCounter();
-        FindFirstObjectByType<OrderManager>().DeliverDish(currentRecipe);
+        CounterDishManager.Instance.AddDish(currentRecipe);
     }
 }

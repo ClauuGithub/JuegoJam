@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 9dc5bf81d83cc08499664ea447c1c764
+guid: 68b6cdbd0749be742b6000fea3c11378
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3411414237561161789
-    second: spoon_0
+      213: 4879355120045542033
+    second: fondue_final_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: spoon_0
+      name: fondue_final_0
       rect:
         serializedVersion: 2
-        x: 188
-        y: 13
-        width: 108
-        height: 460
+        x: 33
+        y: 6
+        width: 443
+        height: 494
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3c7f47c43d838a0d0800000000000000
-      internalID: -3411414237561161789
+      spriteID: 19a4c4731a3f6b340800000000000000
+      internalID: 4879355120045542033
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      spoon_0: -3411414237561161789
+      fondue_final_0: 4879355120045542033
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
