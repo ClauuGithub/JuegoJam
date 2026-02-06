@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class PrepTableMinigame : MonoBehaviour
 {
+	//BORRADOR
 	public void Success()
 	{
 		GameManager.Instance.StationCompleted(true);
