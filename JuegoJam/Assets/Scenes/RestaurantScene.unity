@@ -170,7 +170,7 @@ MonoBehaviour:
   cuttingGame: {fileID: 1831175786}
   massGame: {fileID: 2030635914}
   fryerGame: {fileID: 1397538208}
-  ovenGame: {fileID: 1397538208}
+  ovenGame: {fileID: 1322036164}
   stoveGame: {fileID: 1397538208}
   platingGame: {fileID: 1397538208}
 --- !u!1 &39204097
