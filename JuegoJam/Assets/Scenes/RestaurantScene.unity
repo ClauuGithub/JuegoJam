@@ -168,7 +168,7 @@ MonoBehaviour:
   customerUIPrefab: {fileID: 1316652663164377078, guid: a46e17c2a35ed0048a6471c622149702, type: 3}
   recipeBookPanel: {fileID: 492288194}
   cuttingGame: {fileID: 1831175786}
-  prepGame: {fileID: 1397538208}
+  massGame: {fileID: 2030635914}
   fryerGame: {fileID: 1397538208}
   ovenGame: {fileID: 1397538208}
   stoveGame: {fileID: 1397538208}
@@ -5940,7 +5940,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CuttingBoardMinigame
   pointButtonPrefab: {fileID: 1478564888}
   spawnArea: {fileID: 1316409990}
-  numberOfPoints: 10
+  numberOfPoints: 2
   knifeButton: {fileID: 1342087164}
 --- !u!1001 &1849793958
 PrefabInstance:
