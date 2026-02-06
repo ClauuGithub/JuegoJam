@@ -26,7 +26,7 @@ public class CuttingBoardMinigame : MonoBehaviour
 
     void Start()
     {
-        // El minijuego NO empieza automáticamente
+        // El minijuego NO empieza automÃ¡ticamente
         // Esperamos a que el jugador pulse el cuchillo
         knifeButton.onClick.AddListener(StartMinigame);
     }
@@ -46,7 +46,7 @@ public class CuttingBoardMinigame : MonoBehaviour
         //comprobamos que hay ingrediente en la tabla
         if (currentIngredient == null)
         {
-            Debug.Log("No hay ningún ingrediente en la tabla.");
+            Debug.Log("No hay ningÃºn ingrediente en la tabla.");
             return;
         }
 
@@ -65,14 +65,14 @@ public class CuttingBoardMinigame : MonoBehaviour
         {
             GameObject btn = Instantiate(pointButtonPrefab, spawnArea);
 
-            // Posición aleatoria dentro del panel
+            // PosiciÃ³n aleatoria dentro del panel
             float x = Random.Range(-spawnArea.rect.width / 2, spawnArea.rect.width / 2);
             float y = Random.Range(-spawnArea.rect.height / 2, spawnArea.rect.height / 2);
 
             RectTransform rt = btn.GetComponent<RectTransform>();
             rt.anchoredPosition = new Vector2(x, y);
 
-            // Destruye el botón al hacer clic
+            // Destruye el botÃ³n al hacer clic
             btn.GetComponent<Button>().onClick.AddListener(() =>
             {
                 Destroy(btn, 0.1f);
@@ -88,7 +88,7 @@ public class CuttingBoardMinigame : MonoBehaviour
         }
     }
 
-    // ESTOS DOS MÉTODOS TIENEN QUE APARECER EN CADA MINIJUEGO:
+    // ESTOS DOS MÃ‰TODOS TIENEN QUE APARECER EN CADA MINIJUEGO:
     public void Success()
     {
         Debug.Log("Success!");
