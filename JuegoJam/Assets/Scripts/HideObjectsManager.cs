@@ -5,8 +5,7 @@ public class HideObjectsManager : MonoBehaviour
     [Header("Script Objects de las recetas")]
     public RecipeSO saladRecipe;
     public RecipeSO tortillaRecipe;
-    public RecipeSO pretzelRecipe;
-    public RecipeSO fondueRecipe;
+    public RecipeSO PretzelRecipe;
 
     [Header("Objetos Ensalada")]
     public GameObject[] saladObjects;
@@ -15,10 +14,7 @@ public class HideObjectsManager : MonoBehaviour
     public GameObject[] tortillaObjects;
 
     [Header("Objetos Pretzel")]
-    public GameObject[] pretzelObjects;
-
-    [Header("Objetos Fondue")]
-    public GameObject[] fondueObjects;
+    public GameObject[] PretzelObjects;
 
     [Header("Todos los objetos")]
     public GameObject[] allObjects;
@@ -34,14 +30,6 @@ public class HideObjectsManager : MonoBehaviour
         else if (recipe == tortillaRecipe)
         {
             Enable(tortillaObjects);
-        }
-        else if (recipe == pretzelRecipe)
-        {
-            Enable(pretzelObjects);
-        }
-        else if (recipe == fondueRecipe)
-        {
-            Enable(fondueObjects);
         }
         else
         {

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class MixingMinigame : MonoBehaviour
@@ -65,27 +66,27 @@ public class MixingMinigame : MonoBehaviour
 
         if (nextKey == "") // Primera pulsación (acepta cualquiera)
         {
-            if (Input.GetKeyDown(KeyCode.A))
+            if (Keyboard.current.aKey.isPressed)
             {
                 //Cambiar a sprite izq.
                 setComplete(bowlIzq);
                 nextKey = "D"; nPress++;
             }
-            else if (Input.GetKeyDown(KeyCode.D))
+            else if (Keyboard.current.dKey.isPressed)
             {
                 //Cambiar a sprite der.
                 setComplete(bowlDer);
                 nextKey = "A"; nPress++;
             }
         }
-        else if (nextKey == "A" && Input.GetKeyDown(KeyCode.A))
+        else if (nextKey == "A" && Keyboard.current.aKey.isPressed)
         {
             //Cambiar a sprite izq.
             setComplete(bowlIzq);
             nextKey = "D";
             nPress++;
         }
-        else if (nextKey == "D" && Input.GetKeyDown(KeyCode.D))
+        else if (nextKey == "D" && Keyboard.current.dKey.isPressed)
         {
             //Cambiar a sprite der.
             setComplete(bowlDer);
