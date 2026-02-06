@@ -2157,6 +2157,8 @@ MonoBehaviour:
   debugRecipes:
   - {fileID: 11400000, guid: 065854b918bc727418a742f08c30736e, type: 2}
   - {fileID: 11400000, guid: 2388f422a1d3e5e459cd55e5bec6f826, type: 2}
+  - {fileID: 11400000, guid: 23ba57eda687c82419f9ef60b69294dc, type: 2}
+  - {fileID: 11400000, guid: b36769df2c3ac9444b4e75e47acc7f4f, type: 2}
 --- !u!4 &637933355
 Transform:
   m_ObjectHideFlags: 0
