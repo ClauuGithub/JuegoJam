@@ -62,33 +62,36 @@ public class UIManager : MonoBehaviour
 
     public void UpdateOrdersUI(List<Order> orders)
     {
-        // Marcamos qué UIs están en uso
-        List<Order> ordersToDisplay = new List<Order>(orders);
-
+        // Primero borramos cualquier UI existente de clientes
         foreach (Transform child in customersContainer)
         {
-            CustomerUI ui = child.GetComponent<CustomerUI>();
-            if (ui == null) continue;
-
-            // Si la orden sigue activa, actualizamos el UI
-            if (ordersToDisplay.Contains(ui.linkedOrder))
-            {
-                ui.Setup(ui.linkedOrder);
-                ordersToDisplay.Remove(ui.linkedOrder); // ya está en pantalla
-            }
-            else
-            {
-                // Orden ya no existe, eliminamos UI
-                Destroy(child.gameObject);
-            }
+            Destroy(child.gameObject);
         }
 
-        // Creamos UI solo para órdenes que no tenían
-        foreach (var order in ordersToDisplay)
+        // Creamos un UI por cada pedido
+        foreach (var order in orders)
         {
             GameObject go = Instantiate(customerUIPrefab, customersContainer);
-            CustomerUI ui = go.GetComponent<CustomerUI>();
-            ui.Setup(order);
+
+            // Configuramos el sprite del cliente
+            go.transform.Find("CustomerImage").GetComponent<Image>().sprite = order.customer.sprite;
+
+            // Configuramos el icono de receta
+            go.transform.Find("RecipeIcon").GetComponent<Image>().sprite = order.recipe.icon;
+
+            // Configuramos la barra de paciencia
+            Slider patienceSlider = go.transform.Find("PatienceSlider").GetComponent<Slider>();
+            patienceSlider.maxValue = order.timeRemaining; // paciencia inicial
+            patienceSlider.value = order.timeRemaining;
+
+            // Configuramos el botón de tomar pedido
+            Button takeButton = go.transform.Find("TakeOrderButton").GetComponent<Button>();
+            takeButton.onClick.RemoveAllListeners(); // Quitamos cualquier listener anterior
+            takeButton.onClick.AddListener(() =>
+            {
+                FindFirstObjectByType<OrderManager>().TakeOrder(order);
+            });
+
         }
     }
 
