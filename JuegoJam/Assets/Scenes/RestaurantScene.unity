@@ -1066,7 +1066,8 @@ MonoBehaviour:
   pretzelObjects:
   - {fileID: 1718360822}
   - {fileID: 444581603}
-  fondueObjects: []
+  fondueObjects:
+  - {fileID: 686678736}
   allObjects:
   - {fileID: 732207010}
   - {fileID: 1119223234}
@@ -1075,6 +1076,7 @@ MonoBehaviour:
   - {fileID: 1342087162}
   - {fileID: 1718360822}
   - {fileID: 444581603}
+  - {fileID: 686678736}
 --- !u!224 &432064331 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8321116273563067398, guid: e84a3ecf7d2c64c4c86197cb3b551a7a, type: 3}
