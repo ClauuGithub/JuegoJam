@@ -4,6 +4,7 @@ using System.Collections.Generic;
 public enum CookingStation // TODAS las estaciones posibles
 {
     CuttingBoard,
+    CheeseGrater,
     MassTable,
     Fryer,
     Oven,
@@ -11,7 +12,6 @@ public enum CookingStation // TODAS las estaciones posibles
     Plating,
     Spices,
     Shaping,
-    CheeseGrater,
     Mixing
 }
 
