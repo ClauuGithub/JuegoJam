@@ -81,17 +81,17 @@ public class CuttingBoardMinigame : MonoBehaviour
 
                 if (remainingPoints <= 0)
                 {
-                    Success();
+                    NextIngredient();
+                    //Success();
                 }
                     
             });
         }
     }
 
-    // ESTOS DOS MÉTODOS TIENEN QUE APARECER EN CADA MINIJUEGO:
-    public void Success()
+    public void NextIngredient()
     {
-        Debug.Log("Success!");
+        Debug.Log("Siguiente!");
         if (currentIngredient != null)
         {
             currentIngredient.gameObject.SetActive(false);
@@ -100,7 +100,11 @@ public class CuttingBoardMinigame : MonoBehaviour
 
         knifeButton.gameObject.SetActive(true);
         gameStarted = false;
+    }
 
+    // ESTOS DOS MÉTODOS TIENEN QUE APARECER EN CADA MINIJUEGO:
+    public void Success()
+    {
         GameManager.Instance.StationCompleted(true);
         this.gameObject.SetActive(false);
     }
