@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Beethoven
   m_EditorClassIdentifier: Assembly-CSharp::CustomerSO
   customerName: Beethoven
-  sprite: {fileID: 8119944008123976595, guid: a2a96a391a30a9d468087052c7d43a18, type: 3}
+  sprite: {fileID: 4519278763272150316, guid: 62dfa7e84f9e93244bcd7ae5147ab30d, type: 3}
   possibleRecipes:
   - {fileID: 11400000, guid: 23ba57eda687c82419f9ef60b69294dc, type: 2}
   timeToOrder: 10
