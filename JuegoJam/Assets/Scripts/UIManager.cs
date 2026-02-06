@@ -109,7 +109,7 @@ public class UIManager : MonoBehaviour
 
     public void LoadGameScene()
     {
-        SceneManager.LoadScene("CutSceneInitial");
+        SceneManager.LoadScene("RestaurantScene");
     }
 
     public void CreditsScene()
