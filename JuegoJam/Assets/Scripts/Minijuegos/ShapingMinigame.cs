@@ -42,6 +42,7 @@ public class ShapingMinigame : MonoBehaviour
             {
                 tec4.SetActive(false);
                 tec++;
+                Success();
             }
         }
     }

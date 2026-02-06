@@ -5,12 +5,16 @@ public class HideObjectsManager : MonoBehaviour
     [Header("Script Objects de las recetas")]
     public RecipeSO saladRecipe;
     public RecipeSO tortillaRecipe;
+    public RecipeSO PretzelRecipe;
 
     [Header("Objetos Ensalada")]
     public GameObject[] saladObjects;
 
     [Header("Objetos Tortilla")]
     public GameObject[] tortillaObjects;
+
+    [Header("Objetos Pretzel")]
+    public GameObject[] PretzelObjects;
 
     [Header("Todos los objetos")]
     public GameObject[] allObjects;
