@@ -34,6 +34,12 @@ public class CounterDishManager : MonoBehaviour
 
         if (Keyboard.current.digit2Key.wasPressedThisFrame)
             AddDish(debugRecipes[1]);
+
+        if (Keyboard.current.digit3Key.wasPressedThisFrame)
+            AddDish(debugRecipes[2]);
+
+        if (Keyboard.current.digit4Key.wasPressedThisFrame)
+            AddDish(debugRecipes[3]);
     }
 
     /////
