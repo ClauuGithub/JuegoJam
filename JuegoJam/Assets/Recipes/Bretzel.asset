@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Bretzel
   m_EditorClassIdentifier: Assembly-CSharp::RecipeSO
   recipeName: Bretzel
-  icon: {fileID: 0}
-  stationSteps: 
+  icon: {fileID: -3924199944744800282, guid: 9f7d6d8a0dd46f84abe8fa6cea4cbcc9, type: 3}
+  stationSteps: 0100000003000000
