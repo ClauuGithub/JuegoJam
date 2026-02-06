@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: Salad
   m_EditorClassIdentifier: Assembly-CSharp::RecipeSO
   recipeName: Salad
-  icon: {fileID: 586664278233985690, guid: 58c46dcbfa38a19419824f763c8c32d7, type: 3}
-  stationSteps: 00000000
+  icon: {fileID: -5453079427517612880, guid: dab96dda6d4891847b06e99c3bc5b1a7, type: 3}
+  stationSteps: 0000000006000000
+  seasoningIngredients: 000000000100000002000000

@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6180dff345c397346af1b09196abd689, type: 3}
-  m_Name: BasicCustomer
+  m_Name: Beethoven
   m_EditorClassIdentifier: Assembly-CSharp::CustomerSO
-  customerName: Pepe
-  sprite: {fileID: 1928502913017956590, guid: c27009f797a1f9444a112bd1c057332e, type: 3}
+  customerName: Beethoven
+  sprite: {fileID: 4519278763272150316, guid: 62dfa7e84f9e93244bcd7ae5147ab30d, type: 3}
   possibleRecipes:
-  - {fileID: 11400000, guid: 065854b918bc727418a742f08c30736e, type: 2}
+  - {fileID: 11400000, guid: 23ba57eda687c82419f9ef60b69294dc, type: 2}
   timeToOrder: 10
   patienceTime: 40

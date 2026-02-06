@@ -7,6 +7,9 @@ public class GameManager : MonoBehaviour
     RecipeSO currentRecipe;
     int currentStepIndex;
 
+    public PrepTableMinigame prepGame; // arrastrar desde Inspector
+
+
     void Awake()
     {
         Instance = this;
@@ -14,6 +17,13 @@ public class GameManager : MonoBehaviour
 
     public void StartCooking(RecipeSO recipe)
     {
+        // Revisamos si el mostrador está lleno
+        if (CounterDishManager.Instance.CurrentDishCount() >= CounterDishManager.Instance.maxDishesOnCounter)
+        {
+            Debug.Log("No puedes cocinar, el mostrador está lleno");
+            return;
+        }
+
         currentRecipe = recipe;
         currentStepIndex = 0;
         GoToNextStation();
@@ -30,6 +40,12 @@ public class GameManager : MonoBehaviour
         // Siguiente estación (0 si es la primera):
         CookingStation station = currentRecipe.stationSteps[currentStepIndex];
         UIManager.Instance.ShowMinigame(station);
+
+        if (station == CookingStation.Spices || station == CookingStation.Mixing)
+        {
+            prepGame.gameObject.SetActive(true);
+            prepGame.StartPrepStep(currentRecipe);
+        }
     }
 
     public void StationCompleted(bool success)
@@ -43,8 +59,7 @@ public class GameManager : MonoBehaviour
 
     void FinishDish()
     {
-        // Comprobamos si alguien quería ese pedido
         UIManager.Instance.ReturnToCounter();
-        FindFirstObjectByType<OrderManager>().DeliverDish(currentRecipe);
+        CounterDishManager.Instance.AddDish(currentRecipe);
     }
 }
