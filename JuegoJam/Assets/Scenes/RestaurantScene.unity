@@ -171,7 +171,7 @@ MonoBehaviour:
   gratingGame: {fileID: 1709095236}
   massGame: {fileID: 2030635914}
   fryerGame: {fileID: 1397538208}
-  ovenGame: {fileID: 1397538208}
+  ovenGame: {fileID: 1322036164}
   stoveGame: {fileID: 1397538208}
   platingGame: {fileID: 1397538208}
 --- !u!1 &39204097
@@ -2067,6 +2067,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: -5453079427517612880, guid: dab96dda6d4891847b06e99c3bc5b1a7, type: 3}
+    - target: {fileID: 1846192193282933986, guid: a46e17c2a35ed0048a6471c622149702, type: 3}
+      propertyPath: m_PreserveAspect
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2526395303327311964, guid: a46e17c2a35ed0048a6471c622149702, type: 3}
       propertyPath: m_SizeDelta.x
       value: 285.41
@@ -2417,6 +2421,8 @@ MonoBehaviour:
   debugRecipes:
   - {fileID: 11400000, guid: 065854b918bc727418a742f08c30736e, type: 2}
   - {fileID: 11400000, guid: 2388f422a1d3e5e459cd55e5bec6f826, type: 2}
+  - {fileID: 11400000, guid: 23ba57eda687c82419f9ef60b69294dc, type: 2}
+  - {fileID: 11400000, guid: b36769df2c3ac9444b4e75e47acc7f4f, type: 2}
 --- !u!4 &637933355
 Transform:
   m_ObjectHideFlags: 0
