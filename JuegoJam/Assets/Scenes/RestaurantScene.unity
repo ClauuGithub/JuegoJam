@@ -170,7 +170,7 @@ MonoBehaviour:
   cuttingGame: {fileID: 1831175786}
   massGame: {fileID: 2030635914}
   fryerGame: {fileID: 1397538208}
-  ovenGame: {fileID: 1397538208}
+  ovenGame: {fileID: 1322036164}
   stoveGame: {fileID: 1397538208}
   platingGame: {fileID: 1397538208}
 --- !u!1 &39204097
@@ -946,17 +946,6 @@ MonoBehaviour:
   - {fileID: 1073730226}
   - {fileID: 1718360822}
   - {fileID: 444581603}
---- !u!114 &432064327 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5867436877013667004, guid: e84a3ecf7d2c64c4c86197cb3b551a7a, type: 3}
-  m_PrefabInstance: {fileID: 1566359047}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f289a042a6904cf4a9ceb44b74e19aa8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::IngredientsManager
 --- !u!224 &432064331 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8321116273563067398, guid: e84a3ecf7d2c64c4c86197cb3b551a7a, type: 3}
@@ -1815,6 +1804,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: -5453079427517612880, guid: dab96dda6d4891847b06e99c3bc5b1a7, type: 3}
+    - target: {fileID: 1846192193282933986, guid: a46e17c2a35ed0048a6471c622149702, type: 3}
+      propertyPath: m_PreserveAspect
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2526395303327311964, guid: a46e17c2a35ed0048a6471c622149702, type: 3}
       propertyPath: m_SizeDelta.x
       value: 285.41
@@ -2164,6 +2157,8 @@ MonoBehaviour:
   debugRecipes:
   - {fileID: 11400000, guid: 065854b918bc727418a742f08c30736e, type: 2}
   - {fileID: 11400000, guid: 2388f422a1d3e5e459cd55e5bec6f826, type: 2}
+  - {fileID: 11400000, guid: 23ba57eda687c82419f9ef60b69294dc, type: 2}
+  - {fileID: 11400000, guid: b36769df2c3ac9444b4e75e47acc7f4f, type: 2}
 --- !u!4 &637933355
 Transform:
   m_ObjectHideFlags: 0
