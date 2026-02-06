@@ -85,7 +85,6 @@ public class CuttingBoardMinigame : MonoBehaviour
                 if (remainingPoints <= 0)
                 {
                     NextIngredient();
-                    //Success();
                 }
                     
             });
