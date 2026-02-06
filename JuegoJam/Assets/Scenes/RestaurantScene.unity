@@ -1058,9 +1058,11 @@ MonoBehaviour:
   saladObjects:
   - {fileID: 131462416}
   - {fileID: 1073730226}
+  - {fileID: 1342087162}
   tortillaObjects:
   - {fileID: 732207010}
   - {fileID: 1119223234}
+  - {fileID: 1342087162}
   pretzelObjects:
   - {fileID: 1718360822}
   - {fileID: 444581603}
@@ -1070,6 +1072,7 @@ MonoBehaviour:
   - {fileID: 1119223234}
   - {fileID: 131462416}
   - {fileID: 1073730226}
+  - {fileID: 1342087162}
   - {fileID: 1718360822}
   - {fileID: 444581603}
 --- !u!224 &432064331 stripped
@@ -1642,7 +1645,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &492288195
 RectTransform:
   m_ObjectHideFlags: 0
