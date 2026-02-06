@@ -4006,6 +4006,7 @@ MonoBehaviour:
   spawnArea: {fileID: 1316409990}
   numberOfPoints: 10
   knifeButton: {fileID: 1342087164}
+  ingredients: []
 --- !u!114 &1316409992
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5942,6 +5943,9 @@ MonoBehaviour:
   spawnArea: {fileID: 1316409990}
   numberOfPoints: 2
   knifeButton: {fileID: 1342087164}
+  ingredients:
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1001 &1849793958
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6509,6 +6513,7 @@ MonoBehaviour:
   spawnArea: {fileID: 1972213921}
   numberOfPoints: 10
   knifeButton: {fileID: 0}
+  ingredients: []
 --- !u!222 &1972213924
 CanvasRenderer:
   m_ObjectHideFlags: 0

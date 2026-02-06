@@ -16,26 +16,29 @@ public class CuttingBoardMinigame : MonoBehaviour
     public Button knifeButton;
 
     [Header("Ingredientes disponibles")]
-   // public Gameobject[] ingredients;
+    public GameObject[] ingredients;        //EN EL EDITOR HAY QUE INDICAR CUANTOS INGREDIENTES HAY EN PANTALLA
 
     private GameObject currentIngredient;
 
     private bool gameStarted = false;
 
     private int remainingPoints;
+    private int remainingIngredients;
 
     void Start()
     {
         // El minijuego NO empieza automáticamente
         // Esperamos a que el jugador pulse el cuchillo
         knifeButton.onClick.AddListener(StartMinigame);
+
+        remainingIngredients = ingredients.Length;
     }
 
     public void ShowIngredient(GameObject ingredient)
     {
         if (currentIngredient != null) return;
 
-        ingredient.gameObject.SetActive(true);
+        ingredient.SetActive(true);
         currentIngredient = ingredient;
     }
 
@@ -91,16 +94,26 @@ public class CuttingBoardMinigame : MonoBehaviour
 
     public void NextIngredient()
     {
-        Debug.Log("Siguiente!");
+        Debug.Log("Ingrediente terminado");
+
         if (currentIngredient != null)
         {
-            currentIngredient.gameObject.SetActive(false);
+            currentIngredient.SetActive(false);
             currentIngredient = null;
+
+            remainingIngredients--;
+        }
+
+        if (remainingIngredients <= 0)
+        {
+            Success(); // estación completada
+            return;
         }
 
         knifeButton.gameObject.SetActive(true);
         gameStarted = false;
     }
+
 
     // ESTOS DOS MÉTODOS TIENEN QUE APARECER EN CADA MINIJUEGO:
     public void Success()
