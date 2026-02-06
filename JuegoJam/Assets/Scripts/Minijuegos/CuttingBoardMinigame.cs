@@ -101,8 +101,8 @@ public class CuttingBoardMinigame : MonoBehaviour
         knifeButton.gameObject.SetActive(true);
         gameStarted = false;
 
-        /* GameManager.Instance.StationCompleted(true);
-         this.gameObject.SetActive(false);*/
+        GameManager.Instance.StationCompleted(true);
+        this.gameObject.SetActive(false);
     }
 
     public void Fail()
