@@ -1,107 +1,145 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 
 public class StoveMinigame : MonoBehaviour
 {
-    [Header("Altura mínima requerida del indicador")] //Esto lo quito cuando vea el valor correcto
-    public float IndicatorMinPos;
+	[Header("Valor de decrecimiento")]
+	public float dec;
 
-    [Header("Altura máxima requerida del indicador")] //Esto lo quito cuando vea el valor correcto
-    public float IndicatorMaxPos;
+	[Header("Valor de crecimiento")]
+	public float inc;
 
-    [Header("Valor de decrecimiento")] //Esto lo quito cuando vea el valor correcto
-    public float dec;
+	[Header("Botón que inicia el juego")]
+	public Button PanButton;
 
-    [Header("Valor de crecimiento")] //Esto lo quito cuando vea el valor correcto
-    public float inc;
+	[Header("Huevo")]
+	public GameObject egg;
 
-    [Header("Botón que inicia el juego")]
-    public Button Pan;
+	[Header("Solido 1")]
+	public GameObject solid1;
 
-    [Header("Flechita que indica como de hecho está el plato")]
-    public GameObject Indicator;
+	[Header("Solido 2")]
+	public GameObject solid2;
 
+	[Header("Tortilla")]
+	public GameObject omelette;
 
-    private float IndicatorPos;
-    private float IndicatorVel;
-    private float IndicatorInitialPos;
-    private bool gameStarted = false;
+	[Header("Flechita que indica como de hecho está el plato")]
+	public RectTransform Indicator;
 
-    void Start()
-    {
-        Pan.onClick.AddListener(StartMinigame);
-    }
+	[Header("Barra por la que se mueve el indicador")]
+	public RectTransform ProgressionBar;
 
-    void StartMinigame()
-    {
-        if (gameStarted)
-        {
-            return;
-        }
+	[Header("Espacio seguro")]
+	public RectTransform SafeBar;
 
-
-
-        IndicatorPos = Indicator.transform.position.y;
-        IndicatorInitialPos = Indicator.transform.position.y;
-
-        IndicatorVel = 0.0f;
+	private bool gameStarted = false;
+	private float IndicatorPos;
+	private float IndicatorVel;
+	private float targetMin;
+	private float targetMax;
 
 
+	void Start()
+	{
+		PanButton.onClick.AddListener(StartMinigame);
+	}
 
-        Pan.gameObject.SetActive(false); //Oculta el botón para que no estorbe
-        Debug.Log("Minijuego empezado. Pulsa Espacio para subir el fuego y sueltalo para bajarlo");
-    }
+	void StartMinigame()
+	{
+		if (gameStarted) //Comprueba si ha empezado el juego o no
+		{
+			return;
+		}
 
-    void Update()
-    {
-        if (!gameStarted)
-        {
-            return;
-        }
+		ProgressionBar.gameObject.SetActive(true);
+		Indicator.gameObject.SetActive(true);
 
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            IndicatorVel += inc; // Esto aumanta la velocidad rapido al inicio pero lento al final.
-                                 // Si se quiere que sea al revés se tendrá que multiplicar el valor y ajustar el valor de aumento
-        }
-        else if (!Input.GetKeyDown(KeyCode.Space) && IndicatorVel != 0.0f)
-        {
-            IndicatorVel = IndicatorVel * dec;
+		//Se inicializan variables
+		IndicatorPos = Indicator.anchoredPosition.x;
+		IndicatorVel = 0.0f;
 
-            if (IndicatorVel < 0.05f)
-            {
-                IndicatorVel = 0.0f;
-            }
-        }
+		PanButton.gameObject.SetActive(false); //Oculta el botón para que no estorbe
 
-        if ((IndicatorPos + IndicatorVel) > IndicatorMaxPos)
-        {
-            Fail();
-        }
-        else if (((IndicatorPos + IndicatorVel) <= IndicatorMaxPos) && ((IndicatorPos + IndicatorVel) >= IndicatorMinPos))
-        {
-            Success();
-        }
-        else
-        {
-            IndicatorPos += IndicatorVel;
-            Indicator.transform.position = new Vector3(Indicator.transform.position.x, IndicatorPos, Indicator.transform.position.z);
-        }
+		//Activo los ingredientes
+		egg.gameObject.SetActive(true);
+		solid1.gameObject.SetActive(true);
+		solid2.gameObject.SetActive(true);
 
-    }
+		gameStarted = true;
+		Debug.Log("Minijuego empezado. Pulsa Espacio para aumentar el fuego y sueltalo para disminuirlo");
+	}
+
+	void Update()
+	{
+		if (!gameStarted) //Comprueba si ha empezado el juego o no
+		{
+			return;
+		}
+
+		//Depende de si se pulsa o no el Espacio
+		//se acelera o desacelera el indicador
+		if (Keyboard.current.spaceKey.isPressed)
+		{
+			IndicatorVel += inc * Time.deltaTime;
+		}
+		else if (!Keyboard.current.spaceKey.isPressed && IndicatorVel != 0.0f)
+		{
+
+			IndicatorVel -= dec * Time.deltaTime;
+
+			if (IndicatorVel < 0f)
+			{
+				IndicatorVel = 0f;
+			}
+
+		}
+
+		// Se cambia la posición del indicador
+		//Debug.Log("Velocidad del indicador: " + IndicatorVel);
+		IndicatorPos += IndicatorVel * Time.deltaTime;
+		Indicator.anchoredPosition = new Vector2(IndicatorPos, Indicator.anchoredPosition.y);
+
+		IndicatorIsSafe(); // Se comprueba si se ha ganado o perdido
+	}
+
+	private void IndicatorIsSafe()
+	{
+		//SE PUEDE PONER MÁS BONITO
+		targetMin = SafeBar.anchoredPosition.x - SafeBar.rect.width / 2f;
+		targetMax = SafeBar.anchoredPosition.x + SafeBar.rect.width / 2f;
+
+		if (IndicatorPos >= targetMin && IndicatorPos <= targetMax && IndicatorVel == 0.0f) //Acierta si el indicador está quieto dentro de la zona segura
+		{
+			Debug.Log("MINIJUEGO COMPLETADO");
+			Success();
+		}
+		else if (IndicatorPos > targetMax) //Falla si el indicador sobrepasa la zona segura
+		{
+			Debug.Log("MINIJUEGO FALLADO");
+			Fail();
+		}
+	}
 
 
-    public void Success()
-    {
-        gameStarted = false; // Importante apagar el interruptor
-        GameManager.Instance.StationCompleted(true);
-        this.gameObject.SetActive(false);
-    }
+	public void Success()
+	{
+		egg.gameObject.SetActive(false);
+		solid1.gameObject.SetActive(false);
+		solid2.gameObject.SetActive(false);
 
-    public void Fail()
-    {
-        gameStarted = false;
-        GameManager.Instance.StationCompleted(false);
-        this.gameObject.SetActive(false);
-    }
+		omelette.gameObject.SetActive(true);
+
+		gameStarted = false; // Importante apagar el interruptor
+		GameManager.Instance.StationCompleted(true);
+		this.gameObject.SetActive(false);
+	}
+
+	public void Fail()
+	{
+		gameStarted = false;
+		GameManager.Instance.StationCompleted(false);
+		this.gameObject.SetActive(false);
+	}
 }

@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using System.Collections;
 
 public class OvenMinigame : MonoBehaviour
 {
@@ -22,6 +23,9 @@ public class OvenMinigame : MonoBehaviour
     public int emp = 0;
 
     public Button comen;
+
+    bool resetting = false;
+
     void Start()
     {
         
@@ -29,12 +33,12 @@ public class OvenMinigame : MonoBehaviour
         RandomizeTargetBar();
         comen.onClick.AddListener(Comenzar);
     }
-
     void Update()
     {
-        if (emp == 1)
+        if (emp == 1 && !resetting)
         {
             barras.SetActive(true);
+
             if (!gameActive) return;
 
             MoveArrow();
@@ -42,6 +46,7 @@ public class OvenMinigame : MonoBehaviour
             UpdateTimer();
         }
     }
+
     void Comenzar() { emp = 1; }
 
     void MoveArrow()
@@ -113,15 +118,49 @@ public class OvenMinigame : MonoBehaviour
 
     public void Success()
 	{
-        Debug.Log("Fallo");
+        Debug.Log("Éxito");
         GameManager.Instance.StationCompleted(true);
 		this.gameObject.SetActive(false); // opcional: esconder el minijuego
 	}
 
-	public void Fail()
-	{
-        Debug.Log("Exito");
-        GameManager.Instance.StationCompleted(false);
-		this.gameObject.SetActive(false);
-	}
+    public void Fail()
+    {
+        if (resetting) return;
+        Debug.Log("Fallo");
+
+        StartCoroutine(FailRoutine());
+    }
+
+
+    void ResetMinigame()
+    {
+        timer = timeLimit;
+        movingRight = true;
+        gameActive = true;
+
+        arrow.anchoredPosition = new Vector2(-bar.rect.width / 2f, arrow.anchoredPosition.y);
+
+        RandomizeTargetBar();
+    }
+
+    IEnumerator FailRoutine()
+    {
+        resetting = true;
+        gameActive = false;
+
+        // Opcional: cambiar color de la zona verde a rojo para feedback
+        Image targetImg = targetBar.GetComponent<Image>();
+        Color originalColor = targetImg.color;
+        targetImg.color = Color.red;
+
+        yield return new WaitForSeconds(0.7f);
+
+        // Restaurar color
+        targetImg.color = originalColor;
+
+        ResetMinigame();
+        resetting = false;
+    }
+
+
 }
