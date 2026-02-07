@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
+using System.Collections;
 
 public class StoveMinigame : MonoBehaviour
 {
@@ -39,9 +40,9 @@ public class StoveMinigame : MonoBehaviour
 	private float IndicatorVel;
 	private float targetMin;
 	private float targetMax;
+    private bool resultTriggered = false;
 
-
-	void Start()
+    void Start()
 	{
 		PanButton.onClick.AddListener(StartMinigame);
 	}
@@ -53,7 +54,10 @@ public class StoveMinigame : MonoBehaviour
 			return;
 		}
 
-		ProgressionBar.gameObject.SetActive(true);
+        resultTriggered = false;
+
+
+        ProgressionBar.gameObject.SetActive(true);
 		Indicator.gameObject.SetActive(true);
 
 		//Se inicializan variables
@@ -104,42 +108,55 @@ public class StoveMinigame : MonoBehaviour
 		IndicatorIsSafe(); // Se comprueba si se ha ganado o perdido
 	}
 
-	private void IndicatorIsSafe()
-	{
-		//SE PUEDE PONER MÁS BONITO
-		targetMin = SafeBar.anchoredPosition.x - SafeBar.rect.width / 2f;
-		targetMax = SafeBar.anchoredPosition.x + SafeBar.rect.width / 2f;
+    private void IndicatorIsSafe()
+    {
+        if (resultTriggered) return; // evita múltiples llamadas
 
-		if (IndicatorPos >= targetMin && IndicatorPos <= targetMax && IndicatorVel == 0.0f) //Acierta si el indicador está quieto dentro de la zona segura
-		{
-			Debug.Log("MINIJUEGO COMPLETADO");
-			Success();
-		}
-		else if (IndicatorPos > targetMax) //Falla si el indicador sobrepasa la zona segura
-		{
-			Debug.Log("MINIJUEGO FALLADO");
-			Fail();
-		}
-	}
+        targetMin = SafeBar.anchoredPosition.x - SafeBar.rect.width / 2f;
+        targetMax = SafeBar.anchoredPosition.x + SafeBar.rect.width / 2f;
+
+        if (IndicatorPos >= targetMin && IndicatorPos <= targetMax && IndicatorVel <= 0.01f)
+        {
+            resultTriggered = true;
+            Debug.Log("MINIJUEGO COMPLETADO");
+            Success();
+        }
+        else if (IndicatorPos > targetMax)
+        {
+            resultTriggered = true;
+            Debug.Log("MINIJUEGO FALLADO");
+            Fail();
+        }
+    }
 
 
-	public void Success()
-	{
-		egg.gameObject.SetActive(false);
-		solid1.gameObject.SetActive(false);
-		solid2.gameObject.SetActive(false);
 
-		omelette.gameObject.SetActive(true);
+    public void Success()
+    {
+        StartCoroutine(HandleResult(true));
+    }
 
-		gameStarted = false; // Importante apagar el interruptor
-		GameManager.Instance.StationCompleted(true);
-		this.gameObject.SetActive(false);
-	}
+    public void Fail()
+    {
+        StartCoroutine(HandleResult(false));
+    }
+    IEnumerator HandleResult(bool success)
+    {
+        gameStarted = false;
 
-	public void Fail()
-	{
-		gameStarted = false;
-		GameManager.Instance.StationCompleted(false);
-		this.gameObject.SetActive(false);
-	}
+        // Apagar ingredientes visualmente
+        egg.SetActive(false);
+        solid1.SetActive(false);
+        solid2.SetActive(false);
+
+        if (success)
+            omelette.SetActive(true);
+
+        yield return null; // MUY IMPORTANTE: espera 1 frame
+
+        GameManager.Instance.StationCompleted(success);
+        this.gameObject.SetActive(false);
+    }
+
+
 }
