@@ -9,28 +9,49 @@ public class MassMinigame : MonoBehaviour
 	public int terminado = 10;
 
 	public int tecla = 0;
-    private void Update()
+    void Update()
     {
-        if(terminado != 0) 
-		{
-			if (Keyboard.current.wKey.isPressed && tecla ==1) 
-			{
-                Vector3 scale = masa.transform.localScale;
-                scale.y *= -1;
-                masa.transform.localScale = scale;
-                tecla = 0;
-				terminado--;
-			}
-            if (Keyboard.current.sKey.isPressed && tecla == 0)
+        if (terminado > 0)
+        {
+            if (Keyboard.current.wKey.wasPressedThisFrame && tecla == 1)
             {
-                Vector3 scale = masa.transform.localScale;
-                scale.y *= -1;
-				masa.transform.localScale = scale;
-				tecla = 1;
-				terminado--;
+                FlipMasa();
+                tecla = 0;
+                terminado--;
+            }
+
+            if (Keyboard.current.sKey.wasPressedThisFrame && tecla == 0)
+            {
+                FlipMasa();
+                tecla = 1;
+                terminado--;
             }
         }
-		else { forma.SetActive(true); }
+        else
+        {
+            forma.SetActive(true);
+        }
     }
-   
+
+    void FlipMasa()
+    {
+        Vector3 scale = masa.transform.localScale;
+        scale.y *= -1;
+        masa.transform.localScale = scale;
+    }
+
+    void OnEnable()
+    {
+        terminado = 10;
+        tecla = 0;
+        forma.SetActive(false);
+
+        // se resetea escala por si quedó volteada
+        masa.transform.localScale = new Vector3(
+            Mathf.Abs(masa.transform.localScale.x),
+            Mathf.Abs(masa.transform.localScale.y),
+            Mathf.Abs(masa.transform.localScale.z)
+        );
+    }
+
 }
