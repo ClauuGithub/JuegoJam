@@ -1,13 +1,23 @@
 using UnityEngine;
-using UnityEngine.Audio;
+using UnityEngine.UI;
 
 public class MusicSlider : MonoBehaviour
 {
-    public AudioMixer mixer;
+    public Slider slider;
 
-    public void SliderControl(float slider)
+    void Start()
     {
-        mixer.SetFloat("GlobalVolume", Mathf.Log10(slider) * 20);
+        float savedVolume = PlayerPrefs.GetFloat("Volume", 0.5f);
+
+        slider.value = savedVolume;
+        AudioListener.volume = savedVolume;
+    }
+
+    public void SetVolume(float value)
+    {
+        AudioListener.volume = value;
+        PlayerPrefs.SetFloat("Volume", value);
     }
 }
+
 
