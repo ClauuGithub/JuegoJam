@@ -106,7 +106,7 @@ public class UIManager : MonoBehaviour
 
     public void LoadGameScene()
     {
-        SceneManager.LoadScene("RestaurantScene");
+        SceneManager.LoadScene("InitialCutScene");
     }
 
     public void CreditsScene()
