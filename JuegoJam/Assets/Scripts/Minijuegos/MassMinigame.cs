@@ -32,5 +32,19 @@ public class MassMinigame : MonoBehaviour
         }
 		else { forma.SetActive(true); }
     }
-   
+
+    void OnEnable()
+    {
+        terminado = 10;
+        tecla = 0;
+        forma.SetActive(false);
+
+        // se resetea escala por si quedó volteada
+        masa.transform.localScale = new Vector3(
+            Mathf.Abs(masa.transform.localScale.x),
+            Mathf.Abs(masa.transform.localScale.y),
+            Mathf.Abs(masa.transform.localScale.z)
+        );
+    }
+
 }

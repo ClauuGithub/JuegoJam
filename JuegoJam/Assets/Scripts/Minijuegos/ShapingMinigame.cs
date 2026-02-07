@@ -57,4 +57,18 @@ public class ShapingMinigame : MonoBehaviour
 		GameManager.Instance.StationCompleted(false);
 		this.gameObject.SetActive(false);
 	}
+
+    void OnEnable()
+    {
+        tec = 1;
+
+        masa1.SetActive(false);
+        masa2.SetActive(false);
+
+        tec1.SetActive(true);
+        tec2.SetActive(true);
+        tec3.SetActive(true);
+        tec4.SetActive(true);
+    }
+
 }
