@@ -1430,11 +1430,9 @@ MonoBehaviour:
   saladObjects:
   - {fileID: 131462416}
   - {fileID: 1073730226}
-  - {fileID: 1342087162}
   tortillaObjects:
   - {fileID: 732207010}
   - {fileID: 1119223234}
-  - {fileID: 1342087162}
   pretzelObjects:
   - {fileID: 464376625}
   - {fileID: 296917826}
@@ -1446,17 +1444,13 @@ MonoBehaviour:
   - {fileID: 1956994098}
   - {fileID: 1718360822}
   - {fileID: 444581603}
-  fondueObjects:
-  - {fileID: 686678736}
   allObjects:
   - {fileID: 732207010}
   - {fileID: 1119223234}
   - {fileID: 131462416}
   - {fileID: 1073730226}
-  - {fileID: 1342087162}
   - {fileID: 1718360822}
   - {fileID: 444581603}
-  - {fileID: 686678736}
   - {fileID: 464376625}
   - {fileID: 296917826}
   - {fileID: 275226274}
@@ -1989,7 +1983,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &492288195
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9030,7 +9024,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -811, y: -291}
+  m_AnchoredPosition: {x: -399, y: -198}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1928241309
@@ -9042,16 +9036,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 1928241307}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30649d3a9faa99c48a7b1166b86bf2a0, type: 3}
+  m_Script: {fileID: 11500000, guid: 59f8146938fff824cb5fd77236b75775, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.HorizontalLayoutGroup
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.VerticalLayoutGroup
   m_Padding:
     m_Left: 0
     m_Right: 0
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 0
-  m_Spacing: -100
+  m_Spacing: -120
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 0
