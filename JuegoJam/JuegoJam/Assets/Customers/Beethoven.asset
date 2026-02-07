@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6180dff345c397346af1b09196abd689, type: 3}
+  m_Name: Beethoven
+  m_EditorClassIdentifier: Assembly-CSharp::CustomerSO
+  customerName: Beethoven
+  sprite: {fileID: 4519278763272150316, guid: 62dfa7e84f9e93244bcd7ae5147ab30d, type: 3}
+  possibleRecipes:
+  - {fileID: 11400000, guid: 23ba57eda687c82419f9ef60b69294dc, type: 2}
+  timeToOrder: 10
+  patienceTime: 40
