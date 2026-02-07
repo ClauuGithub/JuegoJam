@@ -152,11 +152,43 @@ public class StoveMinigame : MonoBehaviour
         if (success)
             omelette.SetActive(true);
 
-        yield return null; // MUY IMPORTANTE: espera 1 frame
+        yield return null; // espera 1 frame para que Update no rompa
 
         GameManager.Instance.StationCompleted(success);
+
+        // reseteamos TODO antes de desactivar
+        ResetMinigame();
         this.gameObject.SetActive(false);
     }
 
+
+    void OnEnable()
+    {
+        ResetMinigame();
+    }
+
+    void ResetMinigame()
+    {
+        gameStarted = false;
+        resultTriggered = false;
+
+		// Reset posiciones
+		inc = 185;
+		dec = 200;
+        IndicatorPos = 0f;
+        IndicatorVel = 0f;
+        Indicator.anchoredPosition = new Vector2(0f, Indicator.anchoredPosition.y);
+
+        // Reset visual de ingredientes
+        egg.SetActive(false);
+        solid1.SetActive(false);
+        solid2.SetActive(false);
+        omelette.SetActive(false);
+
+        // Reset barra y botón
+        ProgressionBar.gameObject.SetActive(false);
+        Indicator.gameObject.SetActive(false);
+        PanButton.gameObject.SetActive(true);
+    }
 
 }
