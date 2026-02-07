@@ -16,7 +16,7 @@ public class CounterDishManager : MonoBehaviour
     public int maxDishesOnCounter = 3; // máximo platos visibles en el mostrador
 
     // PRUEBAAAAAS
-    [Header("DEBUG")]
+    /*[Header("DEBUG")]
     public List<RecipeSO> debugRecipes;
 
     public void DebugAddDish(int index)
@@ -40,7 +40,7 @@ public class CounterDishManager : MonoBehaviour
 
         if (Keyboard.current.digit4Key.wasPressedThisFrame)
             AddDish(debugRecipes[3]);
-    }
+    }*/
 
     /////
 
