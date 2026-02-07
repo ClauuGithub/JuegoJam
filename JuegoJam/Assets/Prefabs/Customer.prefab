@@ -191,6 +191,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   customerImage: {fileID: 8495350649291342415}
   recipeIcon: {fileID: 1846192193282933986}
+  patienceCircleExt: {fileID: 2010730312879233328}
   patienceCircle: {fileID: 3225073896724629284}
   takeOrderButton: {fileID: 7263959127697319716}
   linkedOrder:
