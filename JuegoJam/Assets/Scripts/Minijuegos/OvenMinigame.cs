@@ -113,15 +113,27 @@ public class OvenMinigame : MonoBehaviour
 
     public void Success()
 	{
-        Debug.Log("Fallo");
+        Debug.Log("Éxito");
         GameManager.Instance.StationCompleted(true);
 		this.gameObject.SetActive(false); // opcional: esconder el minijuego
 	}
 
 	public void Fail()
 	{
-        Debug.Log("Exito");
-        GameManager.Instance.StationCompleted(false);
-		this.gameObject.SetActive(false);
+        Debug.Log("Fallo");
+        ResetMinigame();
 	}
+
+    void ResetMinigame()
+    {
+        timer = timeLimit;
+        movingRight = true;
+        gameActive = true;
+
+        // Colocar flecha al inicio
+        arrow.anchoredPosition = new Vector2(-bar.rect.width / 2f, arrow.anchoredPosition.y);
+
+        // Nueva posición de la zona verde
+        RandomizeTargetBar();
+    }
 }
