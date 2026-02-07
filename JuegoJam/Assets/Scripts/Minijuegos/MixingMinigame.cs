@@ -4,143 +4,158 @@ using UnityEngine.InputSystem;
 
 public class MixingMinigame : MonoBehaviour
 {
-	[Header("Cantidad máxima de pulsaciones")]
-	public int nMaxPress = 20;
+    [Header("Cantidad máxima de pulsaciones")]
+    public int nMaxPress = 20;
 
-	[Header("Botón que inicia el juego")]
-	public Button InitButton;
+    [Header("Botón que inicia el juego")]
+    //public Button InitButton;
 
-	[Header("Sprite bowl mexclado")]
-	public Sprite bowlMix;
+    [Header("Sprites del bowl")]
+    public Sprite bowlEmpty;
+    public Sprite bowlMix;
+    public Sprite bowlIzq;
+    public Sprite bowlDer;
 
-	[Header("Sprite bowl mezclar izq.")]
-	public Sprite bowlIzq;
+    [Header("Objeto bowl")]
+    public GameObject bowlMpt;
 
-	[Header("Sprite bowl mezclar der.")]
-	public Sprite bowlDer;
+    [Header("Ingredientes")]
+    public int totalIngredientsNeeded = 3;
 
-	[Header("Objeto bowl")]
-	public GameObject bowlMpt;
+    private int ingredientsAdded = 0;
+    private bool ingredientsIns = false;
 
-	private bool ingredientsIns;
-	private bool dWasntPressed;
-	private bool aWasntPressed;
-	private int nPress;
-	private string nextKey;
-	private bool gameStarted = false;
-	private SpriteRenderer bowlRenderer;
+    private bool dWasntPressed;
+    private bool aWasntPressed;
+    private int nPress;
+    private string nextKey;
+    private bool gameStarted = false;
 
+    private SpriteRenderer bowlRenderer;
 
-	void Start()
-	{
-		InitButton.onClick.AddListener(StartMinigame);
-	}
+    /*void Start()
+    {
+        InitButton.onClick.AddListener(StartMinigame);
+    }*/
 
-	// 1. Esto se ejecuta SOLO UNA VEZ al pulsar el bowl
-	void StartMinigame()
-	{
-		if (gameStarted) return; // Si ya empezó, no hagas nada
+    void OnEnable()
+    {
+        // Reset completo al entrar
+        gameStarted = false;
+        ingredientsIns = false;
+        ingredientsAdded = 0;
 
-		ingredientsIns = true; //Esto lo tengo que poner a false cuando implemente poner ingredientes
-		dWasntPressed = true;
-		aWasntPressed = true;
-		nPress = 0;
-		nextKey = ""; // Empezamos vacío para que valga cualquiera (A o D)
-		gameStarted = true;
+        dWasntPressed = true;
+        aWasntPressed = true;
+        nPress = 0;
+        nextKey = "";
 
-		bowlRenderer = bowlMpt.GetComponent<SpriteRenderer>();
-		bowlRenderer.sprite = bowlMix;
-		InitButton.gameObject.SetActive(false); // Opcional: ocultar botón para que no estorbe
-												//bowlMpt.gameObject.SetActive(true);
-		Debug.Log("Minijuego empezado. Pulsa A o D");
-	}
+       // InitButton.gameObject.SetActive(true);
 
-	// 2. Esto se ejecuta TODO EL RATO (cada frame)
-	void Update()
-	{
-		if (!gameStarted) return; // Si no le has dado al bowl, no leas el teclado
+        bowlRenderer = bowlMpt.GetComponent<SpriteRenderer>();
+        bowlRenderer.sprite = bowlEmpty;
+    }
 
+    // Llamar a este método cuando se añade un ingrediente al bowl
+    public void AddIngredient()
+    {
+        ingredientsAdded++;
 
-		if (nextKey == "" && ingredientsIns) // Primera pulsación (acepta cualquiera)
-		{
-			if (Keyboard.current.aKey.isPressed)
-			{
-				//Cambiar a sprite izq.
-				nextKey = "D";
-				nPress++;
-				aWasntPressed = false;
-				bowlRenderer.sprite = bowlDer;
+        if (ingredientsAdded >= totalIngredientsNeeded)
+        {
+            ingredientsIns = true;
+            Debug.Log("Todos los ingredientes añadidos, ya puedes mezclar");
+            StartMinigame();
+        }
+    }
 
+    void StartMinigame()
+    {
+        if (gameStarted) return;
 
-			}
-			else if (Keyboard.current.dKey.isPressed)
-			{
-				//Cambiar a sprite der.
-				nextKey = "A";
-				nPress++;
-				dWasntPressed = false;
-				bowlRenderer.sprite = bowlIzq;
+        if (!ingredientsIns)
+        {
+            Debug.Log("Faltan ingredientes para empezar");
+            return;
+        }
 
+        gameStarted = true;
 
-			}
-		}
-		else if (nextKey == "A" && Keyboard.current.aKey.isPressed && aWasntPressed)
-		{
-			//Cambiar a sprite izq.
-			nextKey = "D";
-			nPress++;
-			aWasntPressed = false;
-			bowlRenderer.sprite = bowlIzq;
+        dWasntPressed = true;
+        aWasntPressed = true;
+        nPress = 0;
+        nextKey = "";
 
+        bowlRenderer.sprite = bowlMix;
+       // InitButton.gameObject.SetActive(false);
 
-		}
-		else if (nextKey == "D" && Keyboard.current.dKey.isPressed && dWasntPressed)
-		{
-			//Cambiar a sprite der.
-			nextKey = "A";
-			nPress++;
-			dWasntPressed = false;
-			bowlRenderer.sprite = bowlDer;
+        Debug.Log("Minijuego empezado. Pulsa A o D");
+    }
 
+    void Update()
+    {
+        if (!gameStarted) return;
 
-		}
+        if (nextKey == "")
+        {
+            if (Keyboard.current.aKey.isPressed)
+            {
+                nextKey = "D";
+                nPress++;
+                aWasntPressed = false;
+                bowlRenderer.sprite = bowlDer;
+            }
+            else if (Keyboard.current.dKey.isPressed)
+            {
+                nextKey = "A";
+                nPress++;
+                dWasntPressed = false;
+                bowlRenderer.sprite = bowlIzq;
+            }
+        }
+        else if (nextKey == "A" && Keyboard.current.aKey.isPressed && aWasntPressed)
+        {
+            nextKey = "D";
+            nPress++;
+            aWasntPressed = false;
+            bowlRenderer.sprite = bowlIzq;
+        }
+        else if (nextKey == "D" && Keyboard.current.dKey.isPressed && dWasntPressed)
+        {
+            nextKey = "A";
+            nPress++;
+            dWasntPressed = false;
+            bowlRenderer.sprite = bowlDer;
+        }
 
-		KeyPressedCheck();
+        KeyPressedCheck();
 
+        if (nPress >= nMaxPress)
+        {
+            Success();
+        }
+    }
 
-		Debug.Log(nPress);
-		// Comprobación de victoria
-		if (nPress >= nMaxPress)
-		{
-			Success();
-		}
-	}
+    private void KeyPressedCheck()
+    {
+        if (!Keyboard.current.aKey.isPressed)
+            aWasntPressed = true;
 
-	private void KeyPressedCheck()
-	{
-		if (!Keyboard.current.aKey.isPressed)
-		{
-			aWasntPressed = true;
+        if (!Keyboard.current.dKey.isPressed)
+            dWasntPressed = true;
+    }
 
-		}
+    public void Success()
+    {
+        gameStarted = false;
+        GameManager.Instance.StationCompleted(true);
+        this.gameObject.SetActive(false);
+    }
 
-		if (!Keyboard.current.dKey.isPressed)
-		{
-			dWasntPressed = true;
-		}
-	}
-
-	public void Success()
-	{
-		gameStarted = false; // Importante apagar el interruptor
-		GameManager.Instance.StationCompleted(true);
-		this.gameObject.SetActive(false);
-	}
-
-	public void Fail()
-	{
-		gameStarted = false;
-		GameManager.Instance.StationCompleted(false);
-		this.gameObject.SetActive(false);
-	}
+    public void Fail()
+    {
+        gameStarted = false;
+        GameManager.Instance.StationCompleted(false);
+        this.gameObject.SetActive(false);
+    }
 }
