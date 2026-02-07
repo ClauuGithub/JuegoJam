@@ -425,6 +425,7 @@ GameObject:
   - component: {fileID: 1846192193282933986}
   - component: {fileID: 3546725300411189875}
   - component: {fileID: 3903127084613684598}
+  - component: {fileID: 6636911444706597072}
   m_Layer: 5
   m_Name: RecipeIcon
   m_TagString: Untagged
@@ -448,8 +449,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 39.9, y: 440}
-  m_SizeDelta: {x: 326.5621, y: 326.5651}
+  m_AnchoredPosition: {x: 39, y: 429.51}
+  m_SizeDelta: {x: 225.0208, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4166106870463518158
 CanvasRenderer:
@@ -481,7 +482,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: -5453079427517612880, guid: dab96dda6d4891847b06e99c3bc5b1a7, type: 3}
   m_Type: 0
-  m_PreserveAspect: 1
+  m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -519,6 +520,20 @@ MonoBehaviour:
   m_EffectColor: {r: 0.7264151, g: 0.7264151, b: 0.7264151, a: 0.5}
   m_EffectDistance: {x: 1, y: -1}
   m_UseGraphicAlpha: 1
+--- !u!114 &6636911444706597072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8023083367972346743}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86710e43de46f6f4bac7c8e50813a599, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.AspectRatioFitter
+  m_AspectMode: 1
+  m_AspectRatio: 1
 --- !u!1 &8489274986308692831
 GameObject:
   m_ObjectHideFlags: 0
