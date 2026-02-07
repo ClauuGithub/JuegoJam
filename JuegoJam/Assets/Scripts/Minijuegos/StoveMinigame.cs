@@ -13,7 +13,19 @@ public class StoveMinigame : MonoBehaviour
     [Header("Botón que inicia el juego")]
     public Button PanButton;
 
-    [Header("Flechita que indica como de hecho está el plato")]
+	[Header("Huevo")]
+	public GameObject egg;
+
+	[Header("Solido 1")]
+	public GameObject solid1;
+
+	[Header("Solido 2")]
+	public GameObject solid2;
+
+	[Header("Tortilla")]
+	public GameObject omelette;
+
+	[Header("Flechita que indica como de hecho está el plato")]
 	public RectTransform Indicator;
 
 	[Header("Barra por la que se mueve el indicador")]
@@ -49,7 +61,13 @@ public class StoveMinigame : MonoBehaviour
         IndicatorVel = 0.0f;
 
         PanButton.gameObject.SetActive(false); //Oculta el botón para que no estorbe
-		gameStarted=true;
+
+        //Activo los ingredientes
+		egg.gameObject.SetActive(true);
+		solid1.gameObject.SetActive(true);
+		solid2.gameObject.SetActive(true);
+
+		gameStarted =true;
         Debug.Log("Minijuego empezado. Pulsa Espacio para aumentar el fuego y sueltalo para disminuirlo");
     }
 
@@ -107,7 +125,13 @@ public class StoveMinigame : MonoBehaviour
 
 	public void Success()
     {
-        gameStarted = false; // Importante apagar el interruptor
+		egg.gameObject.SetActive(false);
+		solid1.gameObject.SetActive(false);
+		solid2.gameObject.SetActive(false);
+
+		omelette.gameObject.SetActive(true);
+
+		gameStarted = false; // Importante apagar el interruptor
         GameManager.Instance.StationCompleted(true);
         this.gameObject.SetActive(false);
     }
