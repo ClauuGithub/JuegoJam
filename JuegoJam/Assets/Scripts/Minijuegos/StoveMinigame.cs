@@ -100,12 +100,18 @@ public class StoveMinigame : MonoBehaviour
 
 		}
 
-		// Se cambia la posición del indicador
-		//Debug.Log("Velocidad del indicador: " + IndicatorVel);
-		IndicatorPos += IndicatorVel * Time.deltaTime;
-		Indicator.anchoredPosition = new Vector2(IndicatorPos, Indicator.anchoredPosition.y);
+        // Se cambia la posición del indicador
+        IndicatorPos += IndicatorVel * Time.deltaTime;
 
-		IndicatorIsSafe(); // Se comprueba si se ha ganado o perdido
+        // Limitar el indicador para que nunca se salga de la barra
+        float minPos = -ProgressionBar.rect.width / 2 + Indicator.rect.width / 2;
+        float maxPos = ProgressionBar.rect.width / 2 - Indicator.rect.width / 2;
+
+        IndicatorPos = Mathf.Clamp(IndicatorPos, minPos, maxPos);
+        Indicator.anchoredPosition = new Vector2(IndicatorPos, Indicator.anchoredPosition.y);
+
+
+        IndicatorIsSafe(); // Se comprueba si se ha ganado o perdido
 	}
 
     private void IndicatorIsSafe()
@@ -172,23 +178,22 @@ public class StoveMinigame : MonoBehaviour
         gameStarted = false;
         resultTriggered = false;
 
-		// Reset posiciones
-		inc = 185;
-		dec = 200;
-        IndicatorPos = 0f;
+        // Posición inicial más a la izquierda dentro de la barra
+        IndicatorPos = -ProgressionBar.rect.width / 2 + Indicator.rect.width / 2;
         IndicatorVel = 0f;
-        Indicator.anchoredPosition = new Vector2(0f, Indicator.anchoredPosition.y);
+        Indicator.anchoredPosition = new Vector2(IndicatorPos, Indicator.anchoredPosition.y);
 
-        // Reset visual de ingredientes
+        // Ingredientes visuales
         egg.SetActive(false);
         solid1.SetActive(false);
         solid2.SetActive(false);
         omelette.SetActive(false);
 
-        // Reset barra y botón
+        // Barra y botón
         ProgressionBar.gameObject.SetActive(false);
         Indicator.gameObject.SetActive(false);
         PanButton.gameObject.SetActive(true);
     }
+
 
 }
