@@ -5,6 +5,7 @@ public class CustomerUI : MonoBehaviour
 {
     public Image customerImage;
     public Image recipeIcon;
+    public Image patienceCircleExt;
     public Image patienceCircle;  // Imagen tipo Fill radial
     public Button takeOrderButton;
 
@@ -17,27 +18,26 @@ public class CustomerUI : MonoBehaviour
         customerImage.sprite = order.customer.sprite;
         recipeIcon.sprite = order.recipe.icon;
 
-        // Círculo lleno al inicio
+        // Estado visual inicial
+        takeOrderButton.gameObject.SetActive(!order.taken);
+        patienceCircleExt.gameObject.SetActive(order.taken);
+        patienceCircle.gameObject.SetActive(order.taken);
+
         patienceCircle.fillAmount = 1f;
 
-        // Configuramos botón
         takeOrderButton.onClick.RemoveAllListeners();
         takeOrderButton.onClick.AddListener(TakeOrder);
-
-        takeOrderButton.gameObject.SetActive(!order.taken);
     }
+
 
     void Update()
     {
-        if (linkedOrder == null) return;
+        if (linkedOrder == null || !linkedOrder.taken) return;
 
-        // Si la orden ya fue tomada, el tiempo restante empieza a decrecer
-        if (linkedOrder.taken)
-        {
-            float fill = Mathf.Clamp01(linkedOrder.timeRemaining / linkedOrder.customer.patienceTime);
-            patienceCircle.fillAmount = fill;
-        }
+        float fill = Mathf.Clamp01(linkedOrder.timeRemaining / linkedOrder.customer.patienceTime);
+        patienceCircle.fillAmount = fill;
     }
+
 
     void TakeOrder()
     {
@@ -47,5 +47,10 @@ public class CustomerUI : MonoBehaviour
         linkedOrder.timeRemaining = linkedOrder.customer.patienceTime;
 
         takeOrderButton.gameObject.SetActive(false);
+        patienceCircleExt.gameObject.SetActive(true);
+        patienceCircle.gameObject.SetActive(true);
+
+        patienceCircle.fillAmount = 1f;
     }
+
 }

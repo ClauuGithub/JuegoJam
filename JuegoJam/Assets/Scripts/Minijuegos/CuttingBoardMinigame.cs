@@ -30,9 +30,8 @@ public class CuttingBoardMinigame : MonoBehaviour
         // El minijuego NO empieza automáticamente
         // Esperamos a que el jugador pulse el cuchillo
         knifeButton.onClick.AddListener(StartMinigame);
-       /* knifeButton.gameObject.SetActive(true);
 
-        remainingIngredients = ingredients.Length;*/
+        //remainingIngredients = ingredients.Length;
     }
 
     void OnEnable()
@@ -48,7 +47,6 @@ public class CuttingBoardMinigame : MonoBehaviour
         foreach (Transform child in spawnArea)
             Destroy(child.gameObject);*/
     }
-
 
     public void ShowIngredient(GameObject ingredient)
     {

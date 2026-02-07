@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9485db935b6035144ac29452fb71e4a9, type: 3}
+  m_Name: SeasoningIngredients
+  m_EditorClassIdentifier: Assembly-CSharp::SeasoningIconDatabase
+  icons:
+  - seasoning: 0
+    icon: {fileID: -673306825874429820, guid: 63f581727e50c6c44af71c40c29fa3a5, type: 3}
+  - seasoning: 1
+    icon: {fileID: 7281829997081858912, guid: e22227f149b588b478c9208cc2d1a36b, type: 3}
+  - seasoning: 2
+    icon: {fileID: 2905193105534146162, guid: c339dd4dce4013541a803849311116cc, type: 3}
