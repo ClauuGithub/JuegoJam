@@ -721,7 +721,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0.21960786, g: 0.21960786, b: 0.21960786, a: 0.22745098}
+  m_Color: {r: 0.21960786, g: 0.21960786, b: 0.21960786, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1273,7 +1273,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CuttingBoardMinigame
   pointButtonPrefab: {fileID: 763087174}
   spawnArea: {fileID: 102584987}
-  numberOfPoints: 2
+  numberOfPoints: 10
   knifeButton: {fileID: 749216846}
   ingredients:
   - {fileID: 0}
@@ -7251,7 +7251,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0.21960786, g: 0.21960786, b: 0.21960786, a: 0.22745098}
+  m_Color: {r: 0.61960787, g: 0.61960787, b: 0.61960787, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -10986,7 +10986,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CuttingBoardMinigame
   pointButtonPrefab: {fileID: 1478564888}
   spawnArea: {fileID: 1316409990}
-  numberOfPoints: 2
+  numberOfPoints: 10
   knifeButton: {fileID: 1342087164}
   ingredients:
   - {fileID: 0}
