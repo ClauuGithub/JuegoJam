@@ -19,7 +19,6 @@ public class UIManager : MonoBehaviour
 
     // MINIJUEGOS
     public GameObject cuttingGame;
-    public GameObject gratingGame;
     public GameObject massGame;
     public GameObject fryerGame;
     public GameObject ovenGame;
@@ -35,7 +34,6 @@ public class UIManager : MonoBehaviour
         switch (station)
         {
             case CookingStation.CuttingBoard: cuttingGame.SetActive(true); break;
-            case CookingStation.CheeseGrater: gratingGame.SetActive(true); break;
             case CookingStation.MassTable: massGame.SetActive(true); break;
             case CookingStation.Fryer: fryerGame.SetActive(true); break;
             case CookingStation.Oven: ovenGame.SetActive(true); break;
@@ -55,7 +53,6 @@ public class UIManager : MonoBehaviour
         counterPanel.SetActive(false);
         recipeBookPanel.SetActive(false);
         cuttingGame.SetActive(false);
-        gratingGame.SetActive(false);
         massGame.SetActive(false);
         fryerGame.SetActive(false);
         ovenGame.SetActive(false);
