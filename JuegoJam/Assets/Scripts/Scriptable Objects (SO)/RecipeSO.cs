@@ -20,8 +20,7 @@ public enum Seasoning // TODAS las especias posibles
     Salt,
     Pepper,
     OliveOil,
-    Nutmeg,
-    Vinegar
+    Nutmeg
 }
 
 [CreateAssetMenu(fileName = "Recipe", menuName = "Cooking/Recipe")]

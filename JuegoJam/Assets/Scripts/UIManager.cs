@@ -25,7 +25,6 @@ public class UIManager : MonoBehaviour
     public GameObject ovenGame;
     public GameObject stoveGame;
     public GameObject platingGame;
-    public GameObject mixingGame;
 
     void Awake() => Instance = this;
 
@@ -42,7 +41,6 @@ public class UIManager : MonoBehaviour
             case CookingStation.Oven: ovenGame.SetActive(true); break;
             case CookingStation.Stove: stoveGame.SetActive(true); break;
             case CookingStation.Plating: platingGame.SetActive(true); break;
-            case CookingStation.Mixing: mixingGame.SetActive(true); break;
         }
     }
 
@@ -63,7 +61,6 @@ public class UIManager : MonoBehaviour
         ovenGame.SetActive(false);
         stoveGame.SetActive(false);
         platingGame.SetActive(false);
-        mixingGame.SetActive(false);
     }
 
     public void UpdateOrdersUI(List<Order> orders)
