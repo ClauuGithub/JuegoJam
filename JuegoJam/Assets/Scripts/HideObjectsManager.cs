@@ -35,6 +35,14 @@ public class HideObjectsManager : MonoBehaviour
         {
             Enable(tortillaObjects);
         }
+        else if (recipe == pretzelRecipe)
+        {
+            Enable(pretzelObjects);
+        }
+        else if (recipe == fondueRecipe)
+        {
+            Enable(fondueObjects);
+        }
         else
         {
             Debug.LogWarning("Receta sin objetos configurados");
