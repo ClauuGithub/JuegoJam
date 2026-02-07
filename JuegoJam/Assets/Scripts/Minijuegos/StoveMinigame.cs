@@ -1,97 +1,111 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 
 public class StoveMinigame : MonoBehaviour
 {
-    [Header("Altura mínima requerida del indicador")] //Esto lo quito cuando vea el valor correcto
-    public float IndicatorMinPos;
-
-    [Header("Altura máxima requerida del indicador")] //Esto lo quito cuando vea el valor correcto
-    public float IndicatorMaxPos;
-
-    [Header("Valor de decrecimiento")] //Esto lo quito cuando vea el valor correcto
+    [Header("Valor de decrecimiento")]
     public float dec;
 
-    [Header("Valor de crecimiento")] //Esto lo quito cuando vea el valor correcto
+    [Header("Valor de crecimiento")]
     public float inc;
 
     [Header("Botón que inicia el juego")]
-    public Button Pan;
+    public Button PanButton;
 
     [Header("Flechita que indica como de hecho está el plato")]
-    public GameObject Indicator;
+	public RectTransform Indicator;
 
+	[Header("Barra por la que se mueve el indicador")]
+	public RectTransform ProgressionBar;
 
-    private float IndicatorPos;
-    private float IndicatorVel;
-    private float IndicatorInitialPos;
+	[Header("Espacio seguro")]
+	public RectTransform SafeBar;
+
     private bool gameStarted = false;
+	private float IndicatorPos;
+    private float IndicatorVel;
+    private float targetMin;
+    private float targetMax;
 
-    void Start()
+
+	void Start()
     {
-        Pan.onClick.AddListener(StartMinigame);
+		PanButton.onClick.AddListener(StartMinigame);
     }
 
     void StartMinigame()
     {
-        if (gameStarted)
+        if (gameStarted) //Comprueba si ha empezado el juego o no
         {
             return;
         }
 
+		ProgressionBar.gameObject.SetActive(true);
+		Indicator.gameObject.SetActive(true);
 
-
-        IndicatorPos = Indicator.transform.position.y;
-        IndicatorInitialPos = Indicator.transform.position.y;
-
+		//Se inicializan variables
+		IndicatorPos = Indicator.anchoredPosition.x;
         IndicatorVel = 0.0f;
 
-
-
-        Pan.gameObject.SetActive(false); //Oculta el botón para que no estorbe
-        Debug.Log("Minijuego empezado. Pulsa Espacio para subir el fuego y sueltalo para bajarlo");
+        PanButton.gameObject.SetActive(false); //Oculta el botón para que no estorbe
+		gameStarted=true;
+        Debug.Log("Minijuego empezado. Pulsa Espacio para aumentar el fuego y sueltalo para disminuirlo");
     }
 
     void Update()
     {
-        if (!gameStarted)
-        {
+        if (!gameStarted) //Comprueba si ha empezado el juego o no
+		{
             return;
         }
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        //Depende de si se pulsa o no el Espacio
+        //se acelera o desacelera el indicador
+        if (Keyboard.current.spaceKey.isPressed) 
         {
-            IndicatorVel += inc; // Esto aumanta la velocidad rapido al inicio pero lento al final.
-                                 // Si se quiere que sea al revés se tendrá que multiplicar el valor y ajustar el valor de aumento
-        }
-        else if (!Input.GetKeyDown(KeyCode.Space) && IndicatorVel != 0.0f)
+			IndicatorVel += inc * Time.deltaTime;
+		}
+        else if (!Keyboard.current.spaceKey.isPressed && IndicatorVel != 0.0f)
         {
-            IndicatorVel = IndicatorVel * dec;
 
-            if (IndicatorVel < 0.05f)
+			IndicatorVel -= dec * Time.deltaTime;
+
+			if (IndicatorVel < 0f)
             {
-                IndicatorVel = 0.0f;
+				IndicatorVel = 0f;
             }
-        }
+            
+		}
 
-        if ((IndicatorPos + IndicatorVel) > IndicatorMaxPos)
-        {
-            Fail();
-        }
-        else if (((IndicatorPos + IndicatorVel) <= IndicatorMaxPos) && ((IndicatorPos + IndicatorVel) >= IndicatorMinPos))
-        {
-            Success();
-        }
-        else
-        {
-            IndicatorPos += IndicatorVel;
-            Indicator.transform.position = new Vector3(Indicator.transform.position.x, IndicatorPos, Indicator.transform.position.z);
-        }
+        // Se cambia la posición del indicador
+		//Debug.Log("Velocidad del indicador: " + IndicatorVel);
+		IndicatorPos += IndicatorVel * Time.deltaTime;
+		Indicator.anchoredPosition = new Vector2(IndicatorPos, Indicator.anchoredPosition.y);
 
+		IndicatorIsSafe(); // Se comprueba si se ha ganado o perdido
     }
+    
+	private void IndicatorIsSafe()
+	{
+		//SE PUEDE PONER MÁS BONITO
+		targetMin = SafeBar.anchoredPosition.x - SafeBar.rect.width / 2f;
+		targetMax = SafeBar.anchoredPosition.x + SafeBar.rect.width / 2f;
+
+		if (IndicatorPos >= targetMin && IndicatorPos <= targetMax && IndicatorVel == 0.0f) //Acierta si el indicador está quieto dentro de la zona segura
+        {
+            Debug.Log("MINIJUEGO COMPLETADO");
+            Success();
+        } 
+        else if (IndicatorPos > targetMax) //Falla si el indicador sobrepasa la zona segura
+        {
+			Debug.Log("MINIJUEGO FALLADO");
+			Fail();
+        }
+	}
 
 
-    public void Success()
+	public void Success()
     {
         gameStarted = false; // Importante apagar el interruptor
         GameManager.Instance.StationCompleted(true);
