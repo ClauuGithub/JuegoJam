@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RecipeSO
   recipeName: CheeseFondue
   icon: {fileID: 21300000, guid: 68b6cdbd0749be742b6000fea3c11378, type: 3}
+  stationSteps: 01000000

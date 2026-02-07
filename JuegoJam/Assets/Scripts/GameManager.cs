@@ -7,9 +7,6 @@ public class GameManager : MonoBehaviour
     RecipeSO currentRecipe;
     int currentStepIndex;
 
-    public PrepTableMinigame prepGame; // arrastrar desde Inspector
-
-
     void Awake()
     {
         Instance = this;
@@ -40,12 +37,6 @@ public class GameManager : MonoBehaviour
         // Siguiente estación (0 si es la primera):
         CookingStation station = currentRecipe.stationSteps[currentStepIndex];
         UIManager.Instance.ShowMinigame(station);
-
-        if (station == CookingStation.Spices || station == CookingStation.Mixing)
-        {
-            prepGame.gameObject.SetActive(true);
-            prepGame.StartPrepStep(currentRecipe);
-        }
     }
 
     public void StationCompleted(bool success)
