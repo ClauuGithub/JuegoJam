@@ -19,3 +19,7 @@ MonoBehaviour:
     icon: {fileID: 7281829997081858912, guid: e22227f149b588b478c9208cc2d1a36b, type: 3}
   - seasoning: 2
     icon: {fileID: 2905193105534146162, guid: c339dd4dce4013541a803849311116cc, type: 3}
+  - seasoning: 4
+    icon: {fileID: 7384423525595376268, guid: 8b4c597ec603b4141a99f91fe89d7e8a, type: 3}
+  - seasoning: 3
+    icon: {fileID: 1257408510326503650, guid: 894ec87253e6c4149b8bc4c6cff2f045, type: 3}

@@ -15,4 +15,4 @@ MonoBehaviour:
   recipeName: Salad
   icon: {fileID: -5453079427517612880, guid: dab96dda6d4891847b06e99c3bc5b1a7, type: 3}
   stationSteps: 0000000006000000
-  seasoningIngredients: 000000000100000002000000
+  seasoningIngredients: 00000000010000000200000004000000

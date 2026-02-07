@@ -172,8 +172,9 @@ MonoBehaviour:
   massGame: {fileID: 2030635914}
   fryerGame: {fileID: 1397538208}
   ovenGame: {fileID: 1322036164}
-  stoveGame: {fileID: 1397538208}
+  stoveGame: {fileID: 1720512317}
   platingGame: {fileID: 1397538208}
+  mixingGame: {fileID: 498270308}
 --- !u!1 &13510125
 GameObject:
   m_ObjectHideFlags: 0
