@@ -2179,7 +2179,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MixingMinigame
   nMaxPress: 20
-  InitButton: {fileID: 116222458}
   bowlEmpty: {fileID: 21300000, guid: f2f61f2edd3b5334aa11c3b569f2ce3f, type: 3}
   bowlMix: {fileID: 21300000, guid: ccbc0b3d279fa4444951aedaa38c7ca7, type: 3}
   bowlIzq: {fileID: 7993834218180342933, guid: f414c17fef037fe46ba31300f2fc5472, type: 3}
@@ -6483,7 +6482,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1242254193
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6547,7 +6546,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -6296047058512904600, guid: c38dd4dc50c23234ba2c15c6ef974b93, type: 3}
+  m_Sprite: {fileID: -6696897164379916337, guid: 88d7507a8ccde16488f7188e5bffa48a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -10823,8 +10822,8 @@ Transform:
   m_GameObject: {fileID: 1829477172}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -9720}
-  m_LocalScale: {x: 108, y: 108, z: 108}
+  m_LocalPosition: {x: -32, y: 18, z: -9720}
+  m_LocalScale: {x: 214.92, y: 119.58149, z: 214.92}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1008354056}
