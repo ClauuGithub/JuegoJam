@@ -8,7 +8,7 @@ public class MixingMinigame : MonoBehaviour
     public int nMaxPress = 20;
 
     [Header("Botón que inicia el juego")]
-    public Button InitButton;
+    //public Button InitButton;
 
     [Header("Sprites del bowl")]
     public Sprite bowlEmpty;
@@ -33,10 +33,10 @@ public class MixingMinigame : MonoBehaviour
 
     private SpriteRenderer bowlRenderer;
 
-    void Start()
+    /*void Start()
     {
         InitButton.onClick.AddListener(StartMinigame);
-    }
+    }*/
 
     void OnEnable()
     {
@@ -50,7 +50,7 @@ public class MixingMinigame : MonoBehaviour
         nPress = 0;
         nextKey = "";
 
-        InitButton.gameObject.SetActive(true);
+       // InitButton.gameObject.SetActive(true);
 
         bowlRenderer = bowlMpt.GetComponent<SpriteRenderer>();
         bowlRenderer.sprite = bowlEmpty;
@@ -65,6 +65,7 @@ public class MixingMinigame : MonoBehaviour
         {
             ingredientsIns = true;
             Debug.Log("Todos los ingredientes añadidos, ya puedes mezclar");
+            StartMinigame();
         }
     }
 
@@ -86,7 +87,7 @@ public class MixingMinigame : MonoBehaviour
         nextKey = "";
 
         bowlRenderer.sprite = bowlMix;
-        InitButton.gameObject.SetActive(false);
+       // InitButton.gameObject.SetActive(false);
 
         Debug.Log("Minijuego empezado. Pulsa A o D");
     }
