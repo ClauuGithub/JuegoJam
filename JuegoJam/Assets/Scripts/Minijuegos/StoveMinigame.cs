@@ -5,102 +5,102 @@ using System.Collections;
 
 public class StoveMinigame : MonoBehaviour
 {
-	[Header("Valor de decrecimiento")]
-	public float dec;
+    [Header("Valor de decrecimiento")]
+    public float dec;
 
-	[Header("Valor de crecimiento")]
-	public float inc;
+    [Header("Valor de crecimiento")]
+    public float inc;
 
-	[Header("Botón que inicia el juego")]
-	public Button PanButton;
+    [Header("Botï¿½n que inicia el juego")]
+    public Button PanButton;
 
-	[Header("Huevo")]
-	public GameObject egg;
+    [Header("Huevo")]
+    public GameObject egg;
 
-	[Header("Solido 1")]
-	public GameObject solid1;
+    [Header("Solido 1")]
+    public GameObject solid1;
 
-	[Header("Solido 2")]
-	public GameObject solid2;
+    [Header("Solido 2")]
+    public GameObject solid2;
 
-	[Header("Tortilla")]
-	public GameObject omelette;
+    [Header("Tortilla")]
+    public GameObject omelette;
 
-	[Header("Flechita que indica como de hecho está el plato")]
-	public RectTransform Indicator;
+    [Header("Flechita que indica como de hecho estï¿½ el plato")]
+    public RectTransform Indicator;
 
-	[Header("Barra por la que se mueve el indicador")]
-	public RectTransform ProgressionBar;
+    [Header("Barra por la que se mueve el indicador")]
+    public RectTransform ProgressionBar;
 
-	[Header("Espacio seguro")]
-	public RectTransform SafeBar;
+    [Header("Espacio seguro")]
+    public RectTransform SafeBar;
 
-	private bool gameStarted = false;
-	private float IndicatorPos;
-	private float IndicatorVel;
-	private float targetMin;
-	private float targetMax;
+    private bool gameStarted = false;
+    private float IndicatorPos;
+    private float IndicatorVel;
+    private float targetMin;
+    private float targetMax;
     private bool resultTriggered = false;
 
     void Start()
-	{
-		PanButton.onClick.AddListener(StartMinigame);
-	}
+    {
+        PanButton.onClick.AddListener(StartMinigame);
+    }
 
-	void StartMinigame()
-	{
-		if (gameStarted) //Comprueba si ha empezado el juego o no
-		{
-			return;
-		}
+    void StartMinigame()
+    {
+        if (gameStarted) //Comprueba si ha empezado el juego o no
+        {
+            return;
+        }
 
         resultTriggered = false;
 
 
         ProgressionBar.gameObject.SetActive(true);
-		Indicator.gameObject.SetActive(true);
+        Indicator.gameObject.SetActive(true);
 
-		//Se inicializan variables
-		IndicatorPos = Indicator.anchoredPosition.x;
-		IndicatorVel = 0.0f;
+        //Se inicializan variables
+        IndicatorPos = Indicator.anchoredPosition.x;
+        IndicatorVel = 0.0f;
 
-		PanButton.gameObject.SetActive(false); //Oculta el botón para que no estorbe
+        PanButton.gameObject.SetActive(false); //Oculta el botï¿½n para que no estorbe
 
-		//Activo los ingredientes
-		egg.gameObject.SetActive(true);
-		solid1.gameObject.SetActive(true);
-		solid2.gameObject.SetActive(true);
+        //Activo los ingredientes
+        egg.gameObject.SetActive(true);
+        solid1.gameObject.SetActive(true);
+        solid2.gameObject.SetActive(true);
 
-		gameStarted = true;
-		Debug.Log("Minijuego empezado. Pulsa Espacio para aumentar el fuego y sueltalo para disminuirlo");
-	}
+        gameStarted = true;
+        Debug.Log("Minijuego empezado. Pulsa Espacio para aumentar el fuego y sueltalo para disminuirlo");
+    }
 
-	void Update()
-	{
-		if (!gameStarted) //Comprueba si ha empezado el juego o no
-		{
-			return;
-		}
+    void Update()
+    {
+        if (!gameStarted) //Comprueba si ha empezado el juego o no
+        {
+            return;
+        }
 
-		//Depende de si se pulsa o no el Espacio
-		//se acelera o desacelera el indicador
-		if (Keyboard.current.spaceKey.isPressed)
-		{
-			IndicatorVel += inc * Time.deltaTime;
-		}
-		else if (!Keyboard.current.spaceKey.isPressed && IndicatorVel != 0.0f)
-		{
+        //Depende de si se pulsa o no el Espacio
+        //se acelera o desacelera el indicador
+        if (Keyboard.current.spaceKey.isPressed)
+        {
+            IndicatorVel += inc * Time.deltaTime;
+        }
+        else if (!Keyboard.current.spaceKey.isPressed && IndicatorVel != 0.0f)
+        {
 
-			IndicatorVel -= dec * Time.deltaTime;
+            IndicatorVel -= dec * Time.deltaTime;
 
-			if (IndicatorVel < 0f)
-			{
-				IndicatorVel = 0f;
-			}
+            if (IndicatorVel < 0f)
+            {
+                IndicatorVel = 0f;
+            }
 
-		}
+        }
 
-        // Se cambia la posición del indicador
+        // Se cambia la posiciï¿½n del indicador
         IndicatorPos += IndicatorVel * Time.deltaTime;
 
         // Limitar el indicador para que nunca se salga de la barra
@@ -112,11 +112,11 @@ public class StoveMinigame : MonoBehaviour
 
 
         IndicatorIsSafe(); // Se comprueba si se ha ganado o perdido
-	}
+    }
 
     private void IndicatorIsSafe()
     {
-        if (resultTriggered) return; // evita múltiples llamadas
+        if (resultTriggered) return; // evita mï¿½ltiples llamadas
 
         targetMin = SafeBar.anchoredPosition.x - SafeBar.rect.width / 2f;
         targetMax = SafeBar.anchoredPosition.x + SafeBar.rect.width / 2f;
@@ -178,7 +178,7 @@ public class StoveMinigame : MonoBehaviour
         gameStarted = false;
         resultTriggered = false;
 
-        // Posición inicial más a la izquierda dentro de la barra
+        // Posiciï¿½n inicial mï¿½s a la izquierda dentro de la barra
         IndicatorPos = -ProgressionBar.rect.width / 2 + Indicator.rect.width / 2;
         IndicatorVel = 0f;
         Indicator.anchoredPosition = new Vector2(IndicatorPos, Indicator.anchoredPosition.y);
@@ -189,7 +189,7 @@ public class StoveMinigame : MonoBehaviour
         solid2.SetActive(false);
         omelette.SetActive(false);
 
-        // Barra y botón
+        // Barra y botï¿½n
         ProgressionBar.gameObject.SetActive(false);
         Indicator.gameObject.SetActive(false);
         PanButton.gameObject.SetActive(true);
