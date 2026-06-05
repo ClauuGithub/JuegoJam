@@ -586,7 +586,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 325440641546151924, guid: 2b7b786391b35be4e82c25c88b414075, type: 3}
+  m_Sprite: {fileID: 325440641546151924, guid: e256ad5ccae218645ae05a021ee37887, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -638,7 +638,8 @@ MonoBehaviour:
   customerUIPrefab: {fileID: 0}
   recipeBookPanel: {fileID: 0}
   cuttingGame: {fileID: 0}
-  prepGame: {fileID: 0}
+  gratingGame: {fileID: 0}
+  massGame: {fileID: 0}
   fryerGame: {fileID: 0}
   ovenGame: {fileID: 0}
   stoveGame: {fileID: 0}
